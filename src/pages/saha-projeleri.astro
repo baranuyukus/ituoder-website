@@ -1,0 +1,321 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { fieldImpactStats, fieldPrinciples, fieldProjects } from '../data/field-projects';
+
+const [supportBoxProject, coffeeProject, sandwichProject, earthquakeProject, itu25Project] = fieldProjects;
+---
+
+<Layout title="itüöder - Saha Projeleri">
+  <section class="section-space relative overflow-hidden pb-8">
+    <div class="pointer-events-none absolute -left-20 top-4 h-[28rem] w-[28rem] rounded-full bg-[#FF9700]/12 blur-[130px]"></div>
+    <div class="pointer-events-none absolute right-0 top-20 h-[24rem] w-[24rem] rounded-full bg-[#1B1B1B]/6 blur-[110px]"></div>
+
+    <div class="site-shell relative z-10 grid gap-8 xl:grid-cols-[minmax(0,0.98fr)_minmax(22rem,0.92fr)] xl:items-center">
+      <div class="space-y-7">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="eyebrow">Saha Projeleri</span>
+          <span class="inline-flex items-center rounded-full border border-[color:var(--brand-outline)] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1B1B1B]/56">
+            kampüste ve kriz anında doğrudan temas
+          </span>
+        </div>
+
+        <div class="space-y-5">
+          <h1 class="section-title max-w-[10ch]">
+            Öğrencinin ihtiyacına sahada, hızlı ve doğrudan karşılık veriyoruz.
+          </h1>
+          <p class="max-w-[39rem] text-lg leading-8 text-[#1B1B1B]/72">
+            itüöder saha projeleri; kampüste küçük ama etkili temaslar kuran, kriz anlarında hızlı refleks gösteren
+            ve öğrencinin gerçek ihtiyacına göre şekillenen destek modellerini bir araya getirir. Koli hazırlığından
+            kahve dağıtımına, ücretsiz öğün desteğinden dayanışma ürünlerine kadar her adım gönüllü emeğiyle kurulur.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a href="/uye-ol" class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_18px_40px_rgba(255,151,0,0.22)]">
+            itüöder’li Ol
+          </a>
+          <a href="/gelismeler" class="btn btn-lg rounded-full border border-[color:var(--brand-outline)] bg-white px-8 text-[#1B1B1B] shadow-none hover:border-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white">
+            Gelişmeleri İncele
+          </a>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {fieldImpactStats.map((item) => (
+            <div class="surface-card p-5">
+              <p class="font-display text-[2.05rem] font-bold leading-none text-[#1B1B1B]">{item.value}</p>
+              <p class="mt-2 text-sm uppercase tracking-[0.18em] text-[#1B1B1B]/46">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <aside class="surface-card relative overflow-hidden p-4 sm:p-5">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,151,0,0.14),transparent_16rem)]"></div>
+        <div class="relative space-y-4">
+          <div class="overflow-hidden rounded-[1.9rem] border border-[color:var(--brand-outline)] bg-white">
+            <img
+              src={supportBoxProject.image}
+              alt={supportBoxProject.imageAlt}
+              class="h-[20rem] w-full object-cover sm:h-[25rem]"
+            />
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-[1fr_0.9fr]">
+            <div class="rounded-[1.6rem] bg-[linear-gradient(145deg,#1B1B1B,#2A2A2A)] p-5 text-white">
+              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-white/48">Öne çıkan refleks</p>
+              <p class="mt-3 max-w-[15ch] font-display text-[1.95rem] font-bold leading-[1.02]">
+                Gerçek ihtiyaç, hızlı hazırlık, doğrudan teslim.
+              </p>
+            </div>
+
+            <div class="rounded-[1.6rem] border border-[color:var(--brand-outline)] bg-[#F5F5F7] p-5">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#1B1B1B]/46">Destek modeli</p>
+              <div class="mt-4 space-y-3 text-sm leading-7 text-[#1B1B1B]/68">
+                <p>Gıda ve hijyen kolileri</p>
+                <p>Kampüs içi ikram ve öğün desteği</p>
+                <p>Kriz anında temel ihtiyaç hattı</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-space-tight pt-2">
+    <div class="site-shell">
+      <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div class="space-y-4">
+          <span class="eyebrow">Nasıl çalışıyoruz?</span>
+          <h2 class="section-title max-w-[11ch]">
+            Saha işlerini görünür kılan şey sadece yardım değil, doğru koordinasyon.
+          </h2>
+        </div>
+        <p class="max-w-[34rem] text-base leading-8 text-[#1B1B1B]/66">
+          Her proje aynı mantıkla kuruluyor: öğrencinin ihtiyacını hızla tespit etmek, gönüllü ekipleri organize etmek
+          ve desteği gösterişten uzak ama etkili bir deneyime dönüştürmek.
+        </p>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        {fieldPrinciples.map((item, index) => (
+          <article class:list={[
+            'surface-card p-6 sm:p-7',
+            index === 1 ? 'bg-[linear-gradient(180deg,#FFFFFF_0%,#F5F5F7_100%)]' : '',
+          ]}>
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--brand-outline)] bg-[#F5F5F7] text-sm font-semibold text-[#1B1B1B]/62">
+              0{index + 1}
+            </span>
+            <h3 class="mt-5 font-display text-[1.7rem] font-bold leading-[1.04] text-[#1B1B1B]">{item.title}</h3>
+            <p class="mt-4 text-sm leading-7 text-[#1B1B1B]/68">{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="site-shell">
+      <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div class="space-y-4">
+          <span class="eyebrow">Projeler</span>
+          <h2 class="section-title max-w-[12ch]">
+            Kampüsteki küçük temasları kalıcı bir dayanışma pratiğine dönüştürüyoruz.
+          </h2>
+        </div>
+        <p class="max-w-[34rem] text-base leading-8 text-[#1B1B1B]/66">
+          Her saha projesi farklı bir ihtiyaçtan doğuyor ama hepsi aynı şeye hizmet ediyor: öğrencinin hayatını
+          somut olarak kolaylaştırmak.
+        </p>
+      </div>
+
+      <div class="grid gap-6">
+        <article class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(20rem,0.88fr)] xl:items-center">
+          <div class="surface-card overflow-hidden p-3">
+            <img
+              src={supportBoxProject.image}
+              alt={supportBoxProject.imageAlt}
+              class="h-[22rem] w-full rounded-[1.6rem] object-cover sm:h-[31rem]"
+            />
+          </div>
+
+          <div class="surface-card p-7 sm:p-8">
+            <span class="eyebrow">{supportBoxProject.eyebrow}</span>
+            <h3 class="mt-5 font-display text-[2.4rem] font-bold leading-[1.02] text-[#1B1B1B] sm:text-[3rem]">
+              {supportBoxProject.title}
+            </h3>
+            <p class="mt-4 text-base leading-8 text-[#1B1B1B]/72">{supportBoxProject.lead}</p>
+            <div class="mt-6 space-y-4 text-sm leading-7 text-[#1B1B1B]/68">
+              {supportBoxProject.body.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+
+            <div class="mt-7 inline-flex rounded-full border border-[#FF9700]/18 bg-[#FFF7EC] px-4 py-2.5 text-sm font-semibold text-[#B36200]">
+              {supportBoxProject.metric}
+            </div>
+          </div>
+        </article>
+
+        <div class="grid gap-6 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+          <article class="surface-card overflow-hidden">
+            <div class="grid gap-0 md:grid-cols-[0.92fr_1.08fr] md:items-stretch">
+              <div class="min-h-[20rem]">
+                <img
+                  src={coffeeProject.image}
+                  alt={coffeeProject.imageAlt}
+                  class="h-full w-full object-cover"
+                />
+              </div>
+
+              <div class="p-7 sm:p-8">
+                <span class="eyebrow">{coffeeProject.eyebrow}</span>
+                <h3 class="mt-5 font-display text-[2rem] font-bold leading-[1.04] text-[#1B1B1B] sm:text-[2.45rem]">
+                  {coffeeProject.title}
+                </h3>
+                <p class="mt-4 text-base leading-8 text-[#1B1B1B]/72">{coffeeProject.lead}</p>
+                <div class="mt-6 space-y-4 text-sm leading-7 text-[#1B1B1B]/68">
+                  {coffeeProject.body.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
+                <div class="mt-7 inline-flex rounded-full border border-[color:var(--brand-outline)] bg-[#F5F5F7] px-4 py-2.5 text-sm font-semibold text-[#1B1B1B]/70">
+                  {coffeeProject.metric}
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-[2rem] border border-[color:var(--brand-outline)] bg-[linear-gradient(145deg,#1B1B1B,#262626)] text-white shadow-[0_28px_70px_rgba(27,27,27,0.14)]">
+            <div class="flex h-full flex-col justify-between p-7 sm:p-8">
+              <div class="flex items-start justify-between gap-4">
+                <span class="eyebrow border-white/10 bg-white/[0.08] text-white/78">{sandwichProject.eyebrow}</span>
+                <div class="overflow-hidden rounded-[1.05rem] border border-white/10 bg-white/5 p-1.5">
+                  <img
+                    src={sandwichProject.image}
+                    alt={sandwichProject.imageAlt}
+                    class="h-24 w-[4.5rem] rounded-[0.8rem] object-cover sm:h-28 sm:w-20"
+                  />
+                </div>
+              </div>
+
+              <div class="mt-8">
+                <h3 class="font-display text-[2rem] font-bold leading-[1.03] text-white sm:text-[2.45rem]">
+                  {sandwichProject.title}
+                </h3>
+                <p class="mt-4 text-base leading-8 text-white/72">{sandwichProject.lead}</p>
+                <div class="mt-6 space-y-4 text-sm leading-7 text-white/68">
+                  {sandwichProject.body.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+
+              <div class="mt-8 inline-flex rounded-full border border-white/10 bg-white/[0.08] px-4 py-2.5 text-sm font-semibold text-white/78">
+                {sandwichProject.metric}
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <article class="overflow-hidden rounded-[2rem] border border-[color:var(--brand-outline)] bg-[linear-gradient(135deg,#141414,#1B1B1B)] text-white shadow-[0_28px_70px_rgba(27,27,27,0.14)]">
+          <div class="grid gap-0 xl:grid-cols-[minmax(0,0.92fr)_minmax(20rem,0.98fr)] xl:items-stretch">
+            <div class="p-7 sm:p-8 lg:p-10">
+              <span class="eyebrow border-white/10 bg-white/[0.08] text-white/78">{earthquakeProject.eyebrow}</span>
+              <h3 class="mt-5 font-display text-[2.35rem] font-bold leading-[1.02] text-white sm:text-[3rem]">
+                {earthquakeProject.title}
+              </h3>
+              <p class="mt-4 max-w-[34rem] text-base leading-8 text-white/72">{earthquakeProject.lead}</p>
+              <div class="mt-6 space-y-4 text-sm leading-7 text-white/68">
+                {earthquakeProject.body.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+              </div>
+
+              <div class="mt-7 inline-flex rounded-full border border-[#FF9700]/22 bg-[#FF9700]/12 px-4 py-2.5 text-sm font-semibold text-[#FFD49A]">
+                {earthquakeProject.metric}
+              </div>
+            </div>
+
+            <div class="min-h-[19rem]">
+              <img
+                src={earthquakeProject.image}
+                alt={earthquakeProject.imageAlt}
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="surface-card overflow-hidden p-7 sm:p-8 lg:p-10">
+          <div class="grid gap-8 xl:grid-cols-[minmax(0,0.88fr)_minmax(22rem,1.12fr)] xl:items-center">
+            <div>
+              <span class="eyebrow">{itu25Project.eyebrow}</span>
+              <h3 class="mt-5 font-display text-[2.4rem] font-bold leading-[1.02] text-[#1B1B1B] sm:text-[3rem]">
+                {itu25Project.title}
+              </h3>
+              <p class="mt-4 text-base leading-8 text-[#1B1B1B]/72">{itu25Project.lead}</p>
+
+              <div class="mt-6 space-y-4 text-sm leading-7 text-[#1B1B1B]/68">
+                {itu25Project.body.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+              </div>
+
+              <div class="mt-7 inline-flex rounded-full border border-[color:var(--brand-outline)] bg-[#F5F5F7] px-4 py-2.5 text-sm font-semibold text-[#1B1B1B]/70">
+                {itu25Project.metric}
+              </div>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-[1.7rem] border border-[color:var(--brand-outline)] bg-[linear-gradient(180deg,#FFFFFF_0%,#F5F5F7_100%)] p-5">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#1B1B1B]/42">Ön yüz</p>
+                <img
+                  src={itu25Project.frontImage}
+                  alt="ITU 25 tişörtünün ön yüzü"
+                  class="mx-auto mt-4 h-[18rem] w-auto object-contain"
+                />
+              </div>
+              <div class="rounded-[1.7rem] border border-[color:var(--brand-outline)] bg-[linear-gradient(180deg,#FFFFFF_0%,#F5F5F7_100%)] p-5">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#1B1B1B]/42">Arka yüz</p>
+                <img
+                  src={itu25Project.backImage}
+                  alt="ITU 25 tişörtünün arka yüzü"
+                  class="mx-auto mt-4 h-[18rem] w-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space-tight pt-0">
+    <div class="site-shell">
+      <div class="overflow-hidden rounded-[2.3rem] border border-[color:var(--brand-outline)] bg-[linear-gradient(135deg,#1B1B1B,#242424)] text-white shadow-[0_28px_70px_rgba(27,27,27,0.16)]">
+        <div class="grid gap-8 p-7 sm:p-9 lg:grid-cols-[minmax(0,0.95fr)_minmax(17rem,0.7fr)] lg:items-center lg:p-12">
+          <div>
+            <span class="eyebrow border-white/10 bg-white/[0.08] text-white/78">Dayanışmayı büyüt</span>
+            <h2 class="mt-5 font-display text-[2.35rem] font-bold leading-[1.02] text-white sm:text-[3rem]">
+              Saha projelerini sürekliliğe dönüştürmek için güçlü bir topluluğa ihtiyaç var.
+            </h2>
+            <p class="mt-4 max-w-[35rem] text-base leading-8 text-white/72">
+              Öğrencilerin tek seferlik değil sürdürülebilir biçimde desteklenmesi için gönüllü emeğine, üyelere ve
+              güçlü bir dayanışma ağına ihtiyaç duyuyoruz. Katıldıkça saha refleksi büyüyor.
+            </p>
+          </div>
+
+          <div class="grid gap-3">
+            <a href="/uye-ol" class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_18px_40px_rgba(255,151,0,0.24)]">
+              Topluluğa Katıl
+            </a>
+            <a href="/gelismeler" class="btn btn-lg rounded-full border border-white/12 bg-white/[0.08] px-8 text-white shadow-none hover:bg-white hover:text-[#1B1B1B]">
+              Tüm Gelişmeleri Gör
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

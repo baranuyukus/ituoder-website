@@ -1,0 +1,414 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  firstMonthMetrics,
+  mentalHealthNeeds,
+  projectGoals,
+  psychologicalSupportStats,
+  supportJourney,
+  supportModelCards,
+  testimonial,
+} from '../data/psychological-support';
+---
+
+<Layout title="itüöder - Psikolojik Destek">
+  <section class="section-space relative overflow-hidden pb-8">
+    <div class="pointer-events-none absolute -left-24 top-0 h-[30rem] w-[30rem] rounded-full bg-[#FF9700]/10 blur-[130px]"></div>
+    <div class="pointer-events-none absolute right-0 top-16 h-[26rem] w-[26rem] rounded-full bg-[#1B1B1B]/5 blur-[120px]"></div>
+    <div class="pointer-events-none absolute left-[42%] top-24 h-[24rem] w-[24rem] rounded-full bg-[#00B4D8]/10 blur-[120px]"></div>
+
+    <div class="site-shell relative z-10 grid gap-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(24rem,0.88fr)] xl:items-center">
+      <div class="space-y-7">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="eyebrow mind-chip">Psikolojik Destek</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-outline)] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1B1B1B]/58 shadow-[0_10px_24px_rgba(0,180,216,0.08)]">
+            <span>partnerliğinde</span>
+            <img src="/psikolojik-destek/heltia-dark.png" alt="Heltia logosu" class="h-4 w-auto object-contain" />
+          </span>
+        </div>
+
+        <div class="space-y-5">
+          <h1 class="section-title max-w-[11ch]">
+            Zihnindeki yükleri hafifletmek ister misin? Merak etme. Senin için buradayız.
+          </h1>
+          <p class="max-w-[39rem] text-lg leading-8 text-[#1B1B1B]/70">
+            <span class="font-semibold text-[#00B4D8]">ruhuna iyi bak</span>, İTÜ öğrencilerine uygun fiyatlı
+            psikolojik destek sunmayı amaçlayan bir projedir. Anlaşmalı terapi merkezleri aracılığıyla yüz yüze
+            seanslar sağlayarak öğrencilerin mental sağlıklarına destek olur.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSc8zIgga3--k3UT1nFN8Wph2bFD33j5Cvx22UuywYM60xZBXg/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_18px_40px_rgba(255,151,0,0.22)]"
+          >
+            Şimdi Talep Et
+          </a>
+          <a href="/simdi-indir" class="btn btn-lg rounded-full border border-[#00B4D8]/20 bg-[#00B4D8]/[0.08] px-8 text-[#007A93] shadow-[0_14px_30px_rgba(0,180,216,0.12)] hover:border-[#00B4D8] hover:bg-[#00B4D8] hover:text-white">
+            itüöder App
+          </a>
+        </div>
+
+        <div class="inline-flex rounded-full border border-[#00B4D8]/20 bg-[#00B4D8]/[0.08] px-4 py-2.5 text-sm font-semibold text-[#006F86]">
+          Destekten sadece itüöder üyeleri faydalanabilir.
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-3">
+          {psychologicalSupportStats.map((item) => (
+            <div class="surface-card mind-card p-5">
+              <p class="font-display text-[2.1rem] font-bold leading-none text-[#1B1B1B]">{item.value}</p>
+              <div class="mt-3 flex items-center gap-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#00B4D8]"></span>
+                <p class="text-sm uppercase tracking-[0.18em] text-[#1B1B1B]/46">{item.label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <aside class="surface-card relative overflow-hidden p-4 sm:p-5">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,151,0,0.12),transparent_16rem),radial-gradient(circle_at_bottom_right,rgba(0,180,216,0.14),transparent_18rem)]"></div>
+        <div class="relative mind-soft rounded-[1.85rem] border p-6 sm:p-7">
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <img src="/psikolojik-destek/project-logo.png" alt="ruhuna iyi bak psikolojik destek logosu" class="h-16 w-auto object-contain sm:h-20" />
+            <div class="rounded-[1.2rem] border border-[#00B4D8]/16 bg-white px-4 py-3 text-right shadow-[0_12px_24px_rgba(0,180,216,0.08)]">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#1B1B1B]/42">Online partner</p>
+              <img src="/psikolojik-destek/heltia-dark.png" alt="Heltia logosu" class="mt-2 h-7 w-auto object-contain" />
+            </div>
+          </div>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-[1fr_0.92fr]">
+            <div class="mind-dark rounded-[1.5rem] p-5 text-white shadow-[0_22px_50px_rgba(0,180,216,0.16)]">
+              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[#8CE8F6]/72">Kimin için?</p>
+              <p class="mt-3 max-w-[15ch] font-display text-[1.8rem] font-bold leading-[1.02]">
+                İTÜ öğrencileri için daha erişilebilir mental sağlık desteği.
+              </p>
+            </div>
+
+            <div class="mind-card rounded-[1.5rem] border p-4">
+              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[#007A93]">Dijital erişim</p>
+              <img src="/psikolojik-destek/app-screen.png" alt="itüöder uygulamasında psikolojik destek ekranı" class="mt-3 w-full rounded-[1.25rem] object-cover" />
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-[1.45rem] border border-[#00B4D8]/18 bg-[#00B4D8]/[0.07] p-4">
+              <img src="/psikolojik-destek/student-male.webp" alt="kafası karışık erkek öğrenci illüstrasyonu" class="mx-auto h-32 w-32 object-contain" />
+              <p class="mt-3 text-center text-sm leading-7 text-[#1B1B1B]/66">
+                Yoğun tempo, belirsizlik ve baskı anlarında yalnız hissetmemen için tasarlandı.
+              </p>
+            </div>
+            <div class="rounded-[1.45rem] border border-[#00B4D8]/16 bg-white p-4 shadow-[0_14px_28px_rgba(0,180,216,0.08)]">
+              <img src="/psikolojik-destek/student-female.webp" alt="kafası karışık kadın öğrenci illüstrasyonu" class="mx-auto h-32 w-32 object-contain" />
+              <p class="mt-3 text-center text-sm leading-7 text-[#1B1B1B]/66">
+                Yüz yüze ya da online modelle ihtiyaç duyduğun kanaldan desteğe ulaşabilirsin.
+              </p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="surec" class="section-space-tight pt-2">
+    <div class="site-shell">
+      <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div class="space-y-4">
+          <span class="eyebrow">Nasıl çalışır?</span>
+          <h2 class="section-title max-w-[11ch]">
+            Destek sürecini kısa, güvenli ve olabildiğince erişilebilir tasarladık.
+          </h2>
+        </div>
+        <p class="max-w-[34rem] text-base leading-8 text-[#1B1B1B]/66">
+          Başvuru formundan terapi sürecinin başlamasına kadar akış net. Bilgiler sadece ilgili terapi merkezine
+          ulaştırılır ve eşleşme süreci bu veriler üzerinden ilerler.
+        </p>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-2">
+        {supportJourney.map((item, index) => (
+          <article class:list={[
+            'surface-card flex h-full flex-col p-6 sm:p-7',
+            index === 0 ? 'mind-card shadow-[0_20px_44px_rgba(0,180,216,0.08)]' : '',
+            index === 3 ? 'bg-[linear-gradient(180deg,#0C2730_0%,#123C46_40%,#1B1B1B_100%)] text-white shadow-[0_24px_55px_rgba(0,180,216,0.18)]' : '',
+          ]}>
+            <div class="flex items-start justify-between gap-4">
+              <span class:list={[
+                'inline-flex h-12 w-12 items-center justify-center rounded-full text-sm font-semibold',
+                index === 3
+                  ? 'bg-[#00B4D8]/18 text-white'
+                  : 'border border-[#00B4D8]/18 bg-[#00B4D8]/[0.08] text-[#007A93]',
+              ]}>
+                {item.step}
+              </span>
+              {index === 3 && (
+                <img src="/psikolojik-destek/heltia-light.png" alt="Heltia logosu" class="h-6 w-auto object-contain opacity-90" />
+              )}
+            </div>
+
+            <h3 class:list={[
+              'mt-6 font-display text-[1.8rem] font-bold leading-[1.04]',
+              index === 3 ? 'text-white' : 'text-[#1B1B1B]',
+            ]}>
+              {item.title}
+            </h3>
+
+            <p class:list={[
+              'mt-4 text-sm leading-7',
+              index === 3 ? 'text-white/72' : 'text-[#1B1B1B]/68',
+            ]}>
+              {item.description}
+            </p>
+
+            {item.actionLabel && item.actionHref && (
+              <a
+                href={item.actionHref}
+                target={item.actionHref.startsWith('http') ? '_blank' : undefined}
+                rel={item.actionHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class:list={[
+                  'mt-6 inline-flex items-center gap-2 text-sm font-semibold',
+                  index === 3 ? 'text-[#8CE8F6]' : 'text-[#007A93]',
+                ]}
+              >
+                {item.actionLabel}
+                <span aria-hidden="true">→</span>
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="site-shell grid gap-6 xl:grid-cols-2">
+      {supportModelCards.map((card) => (
+        <article class:list={[
+          'overflow-hidden rounded-[2rem] border p-6 sm:p-8',
+          card.theme === 'dark'
+            ? 'border-[#00B4D8]/16 bg-[linear-gradient(145deg,#0B232B_0%,#0F313A_38%,#1B1B1B_100%)] text-white shadow-[0_28px_70px_rgba(0,180,216,0.16)]'
+            : 'surface-card mind-soft',
+        ]}>
+          <div class="flex items-center justify-between gap-4">
+            <span class:list={[
+              'inline-flex rounded-full px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em]',
+              card.theme === 'dark'
+                ? 'border border-[#00B4D8]/16 bg-[#00B4D8]/12 text-[#A5F1FF]'
+                : 'border border-[#00B4D8]/18 bg-[#00B4D8]/[0.08] text-[#007A93]',
+            ]}>
+              {card.eyebrow}
+            </span>
+
+            {card.theme === 'dark' ? (
+              <img src="/psikolojik-destek/heltia-light.png" alt="Heltia logosu" class="h-6 w-auto object-contain opacity-90" />
+            ) : (
+              <img src="/psikolojik-destek/project-logo.png" alt="ruhuna iyi bak logosu" class="h-10 w-auto object-contain" />
+            )}
+          </div>
+
+          <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(10rem,0.7fr)] lg:items-center">
+            <div>
+              <h2 class:list={[
+                'font-display text-[2rem] font-bold leading-[1.02]',
+                card.theme === 'dark' ? 'text-white' : 'text-[#1B1B1B]',
+              ]}>
+                {card.title}
+              </h2>
+              <p class:list={[
+                'mt-4 text-base leading-8',
+                card.theme === 'dark' ? 'text-white/72' : 'text-[#1B1B1B]/68',
+              ]}>
+                {card.description}
+              </p>
+
+              <ul class:list={[
+                'mt-6 space-y-3 text-sm leading-7',
+                card.theme === 'dark' ? 'text-white/76' : 'text-[#1B1B1B]/68',
+              ]}>
+                {card.points.map((point) => (
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2 w-2 rounded-full bg-[#FF9700]"></span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={card.actionHref}
+                target={card.actionHref.startsWith('http') ? '_blank' : undefined}
+                rel={card.actionHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class:list={[
+                  'mt-7 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition',
+                  card.theme === 'dark'
+                    ? 'bg-[#00B4D8] text-white hover:bg-[#009BBC]'
+                    : 'border border-[#00B4D8]/18 bg-white text-[#007A93] hover:border-[#00B4D8] hover:bg-[#00B4D8]/[0.08]',
+                ]}
+              >
+                {card.actionLabel}
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div class:list={[
+              'rounded-[1.6rem] p-4',
+              card.theme === 'dark'
+                ? 'border border-[#00B4D8]/16 bg-white/6'
+                : 'border border-[#00B4D8]/16 bg-white',
+            ]}>
+              {card.theme === 'dark' ? (
+                <img src="/psikolojik-destek/app-screen.png" alt="itüöder uygulamasında online terapi erişimi" class="w-full rounded-[1.2rem] object-cover" />
+              ) : (
+                <img src="/psikolojik-destek/student-male.webp" alt="psikolojik destek illüstrasyonu" class="mx-auto h-44 w-auto object-contain" />
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-space-tight">
+    <div class="site-shell grid gap-6 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+      <div class="surface-card mind-soft p-7 sm:p-8">
+        <span class="eyebrow mind-chip">Neden önemli?</span>
+        <h2 class="mt-5 font-display text-[2.3rem] font-bold leading-[1.02] text-[#1B1B1B] sm:text-[2.8rem]">
+          Mental sağlık, öğrencilik hayatının görünmez ama belirleyici katmanlarından biri.
+        </h2>
+        <p class="mt-4 text-base leading-8 text-[#1B1B1B]/68">
+          Üniversite yılları büyük dönüşüm, belirsizlik ve baskı dönemleri. Proje, destek almayı bir lüks olmaktan
+          çıkarıp erişilebilir bir öğrenci hakkına dönüştürmeyi hedefliyor.
+        </p>
+
+        <div class="mt-7 space-y-3">
+          {mentalHealthNeeds.map((item) => (
+            <div class="rounded-[1.35rem] border border-[#00B4D8]/18 bg-[#00B4D8]/[0.07] px-4 py-4 text-sm leading-7 text-[#1B1B1B]/70">
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid gap-4">
+        {projectGoals.map((goal, index) => (
+          <article class:list={[
+            'surface-card p-6',
+            index === 1 ? 'border-[#00B4D8]/20 bg-[linear-gradient(180deg,rgba(0,180,216,0.12)_0%,#FFFFFF_100%)] shadow-[0_18px_40px_rgba(0,180,216,0.1)]' : '',
+          ]}>
+            <div class="flex items-center gap-3">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#00B4D8]/18 bg-[#00B4D8]/[0.08] text-sm font-semibold text-[#007A93]">
+                0{index + 1}
+              </span>
+              <h3 class="font-display text-[1.45rem] font-bold leading-tight text-[#1B1B1B]">{goal.title}</h3>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-[#1B1B1B]/68">{goal.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="site-shell grid gap-6 xl:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)]">
+      <aside class="surface-card relative overflow-hidden p-7 sm:p-8">
+        <div class="absolute -right-10 top-0 h-36 w-36 rounded-full bg-[#FF9700]/10 blur-3xl"></div>
+        <div class="absolute -left-8 bottom-4 h-32 w-32 rounded-full bg-[#00B4D8]/12 blur-3xl"></div>
+        <div class="relative">
+          <span class="eyebrow mind-chip">İlk ayın verileri</span>
+          <h2 class="mt-5 font-display text-[2.15rem] font-bold leading-[1.02] text-[#1B1B1B] sm:text-[2.6rem]">
+            İhtiyacın ne kadar büyük olduğunu veriler de gösteriyor.
+          </h2>
+          <p class="mt-4 text-base leading-8 text-[#1B1B1B]/68">
+            Psikolojik desteğe erişim talebi açık. Projenin ilk ayında gelen başvurular, sürdürülebilir bir destek
+            ağının ne kadar kritik olduğunu görünür kıldı.
+          </p>
+
+          <div class="mt-7 grid gap-4 sm:grid-cols-2">
+            {firstMonthMetrics.map((item) => (
+              <div class="mind-card rounded-[1.4rem] border p-5">
+                <p class="font-display text-[2rem] font-bold leading-none text-[#1B1B1B]">{item.value}</p>
+                <p class="mt-2 text-sm leading-7 text-[#1B1B1B]/62">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </aside>
+
+      <article class="overflow-hidden rounded-[2rem] border border-[#00B4D8]/16 bg-[linear-gradient(145deg,#091D23_0%,#123641_38%,#1B1B1B_100%)] text-white shadow-[0_28px_70px_rgba(0,180,216,0.16)]">
+        <div class="grid gap-0 md:grid-cols-[0.86fr_1.14fr] md:items-stretch">
+          <div class="flex items-center justify-center bg-[linear-gradient(180deg,rgba(0,180,216,0.14),transparent)] p-6">
+            <img src="/psikolojik-destek/student-female.webp" alt="psikolojik destek alan öğrenci illüstrasyonu" class="h-56 w-auto object-contain sm:h-64" />
+          </div>
+
+          <div class="flex flex-col justify-center p-7 sm:p-8">
+            <span class="eyebrow border-[#00B4D8]/16 bg-[#00B4D8]/12 text-[#A5F1FF]">ruhuna iyi bakanlar</span>
+            <blockquote class="mt-5 font-display text-[1.8rem] font-bold leading-[1.08] text-white sm:text-[2.2rem]">
+              “{testimonial.quote}”
+            </blockquote>
+            <p class="mt-6 text-sm uppercase tracking-[0.2em] text-white/46">{testimonial.author}</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-space-tight pt-0">
+    <div class="site-shell">
+      <div class="overflow-hidden rounded-[2.35rem] border border-[#00B4D8]/16 bg-[linear-gradient(135deg,#0A1C22_0%,#10353E_40%,#1B1B1B_100%)] text-white shadow-[0_28px_70px_rgba(0,180,216,0.16)]">
+        <div class="grid gap-8 p-7 sm:p-9 lg:grid-cols-[minmax(0,0.95fr)_minmax(17rem,0.7fr)] lg:items-center lg:p-12">
+          <div>
+            <span class="eyebrow border-[#00B4D8]/16 bg-[#00B4D8]/12 text-[#A5F1FF]">Süreci başlat</span>
+            <h2 class="mt-5 font-display text-[2.35rem] font-bold leading-[1.02] text-white sm:text-[3rem]">
+              Mental sağlık desteğine erişimi daha kolay hale getiriyoruz.
+            </h2>
+            <p class="mt-4 max-w-[34rem] text-base leading-8 text-white/72">
+              Yüz yüze destek için formu doldurabilir, online terapi için itüöder uygulamasından süreci hemen
+              başlatabilirsin. Eğer önce topluluğa katılman gerekiyorsa üyelik sayfasına geçmen yeterli.
+            </p>
+          </div>
+
+          <div class="grid gap-3">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSc8zIgga3--k3UT1nFN8Wph2bFD33j5Cvx22UuywYM60xZBXg/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_18px_40px_rgba(255,151,0,0.24)]"
+            >
+              Şimdi Talep Et
+            </a>
+            <a href="/simdi-indir" class="btn btn-lg rounded-full border border-[#00B4D8]/16 bg-[#00B4D8] px-8 text-white shadow-[0_16px_34px_rgba(0,180,216,0.22)] hover:bg-[#009BBC]">
+              Online Terapiye Geç
+            </a>
+            <a href="/uye-ol" class="btn btn-lg rounded-full border border-white/12 bg-transparent px-8 text-white shadow-none hover:bg-white/[0.08]">
+              Önce Üye Ol
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .mind-chip {
+    border-color: rgba(0, 180, 216, 0.18);
+    background: rgba(0, 180, 216, 0.08);
+    color: #007a93;
+  }
+
+  .mind-card {
+    border-color: rgba(0, 180, 216, 0.18);
+    background: linear-gradient(180deg, rgba(0, 180, 216, 0.08) 0%, #ffffff 76%);
+  }
+
+  .mind-soft {
+    border-color: rgba(0, 180, 216, 0.16);
+    background: linear-gradient(180deg, rgba(0, 180, 216, 0.08) 0%, #f5f5f7 100%);
+  }
+
+  .mind-dark {
+    background: linear-gradient(145deg, #0b232b 0%, #123641 52%, #1b1b1b 100%);
+  }
+</style>

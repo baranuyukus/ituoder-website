@@ -1,0 +1,501 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AppIcon from '../components/AppIcon.astro';
+
+const steps = [
+  {
+    step: "01",
+    title: "itüöder Üyesi Ol",
+    description:
+      "Kariyer destek paneline ulaşmak için itüöder üyesi olman gerekiyor. Üyelik, tüm proje ve hizmetlerimize kapı açar.",
+    actionLabel: "Üye Ol",
+    actionHref: "/uye-ol",
+  },
+  {
+    step: "02",
+    title: "Uygulamayı İndir ve Giriş Yap",
+    description:
+      "App Store veya Google Play üzerinden itüöder mobil uygulamasını indir. Üyelik sonrası e-posta ile gelen bilgilerinle giriş yap.",
+    actionLabel: "Uygulamayı İndir",
+    actionHref: "/simdi-indir",
+  },
+  {
+    step: "03",
+    title: "İlanları İncele",
+    description:
+      "Sana uygun şirketlerin ilanlarını Kariyer Gelişim Desteği sayfasından inceleyebilir ve başvuru sürecini uygulamadan yönetebilirsin.",
+    actionLabel: "Kariyer Sayfasına Git",
+    actionHref: "/simdi-indir",
+  },
+];
+
+const benefits = [
+  {
+    icon: "target",
+    title: "Hedef Odaklı İlanlar",
+    description:
+      "İTÜ öğrencilerine özel, kariyer hedeflerinle örtüşen staj ve iş ilanlarına öncelikli erişim.",
+  },
+  {
+    icon: "mentorship",
+    title: "Mentorluk Ağı",
+    description:
+      "Sektör profesyonelleriyle birebir bağlantı kurma ve kariyer tavsiyesi alma fırsatı.",
+  },
+  {
+    icon: "document",
+    title: "CV & Başvuru Desteği",
+    description:
+      "Özgeçmişinden cover letter'a kadar başvuru materyallerini uzman rehberliğiyle hazırla.",
+  },
+  {
+    icon: "building",
+    title: "Kurumsal İş Birlikleri",
+    description:
+      "Anlaşmalı şirketlerin kampüs etkinlikleri, tanışma günleri ve özel kariyer programlarına katıl.",
+  },
+  {
+    icon: "mobile",
+    title: "Mobil Erişim",
+    description:
+      "Tüm kariyer fırsatlarına itüöder uygulaması üzerinden istediğin yerden ulaş.",
+  },
+  {
+    icon: "shield",
+    title: "Sadece Üyelere Özel",
+    description:
+      "Kariyer gelişim desteği yalnızca itüöder üyeleri için aktif. Üyelik ile tüm avantajlardan yararlan.",
+  },
+];
+
+const stats = [
+  { value: "50+", label: "Anlaşmalı Şirket" },
+  { value: "200+", label: "Desteklenen Öğrenci" },
+  { value: "3x", label: "Daha Hızlı İstihdam" },
+];
+---
+
+<Layout title="İTÜ ÖDER – Kariyer Gelişim Desteği | Kariyerinde Yanındayız">
+
+  <!-- ─── HERO ─── -->
+  <section class="section-space relative overflow-hidden pb-8">
+    <div class="pointer-events-none absolute -left-24 top-0 h-[30rem] w-[30rem] rounded-full bg-[#8338ec]/10 blur-[130px]"></div>
+    <div class="pointer-events-none absolute right-0 top-16 h-[26rem] w-[26rem] rounded-full bg-[#1B1B1B]/5 blur-[120px]"></div>
+    <div class="pointer-events-none absolute left-[42%] top-24 h-[22rem] w-[22rem] rounded-full bg-[#FF9700]/8 blur-[120px]"></div>
+
+    <div class="site-shell relative z-10 grid gap-8 xl:grid-cols-[minmax(0,1.05fr)_minmax(24rem,0.85fr)] xl:items-center">
+      <!-- Sol: Metin -->
+      <div class="space-y-7">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="career-chip eyebrow">Kariyer Gelişim Desteği</span>
+          <span class="inline-flex items-center rounded-full border border-[color:var(--brand-outline)] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1B1B1B]/56">
+            sadece üyelere özel
+          </span>
+        </div>
+
+        <div class="space-y-5">
+          <h1 class="section-title max-w-[12ch]">
+            Kariyer yolculuğunda yalnız yürümek zorunda değilsin.
+            <span class="block text-[#8338ec]">Kaygılanma.</span>
+          </h1>
+          <p class="max-w-[39rem] text-lg leading-8 text-[#1B1B1B]/70">
+            <span class="font-semibold text-[#8338ec]">Kariyer Gelişim Desteği</span>, İTÜ öğrencilerinin kariyerlerini şekillendirme sürecinde yanlarında olarak hedeflerine ulaşmalarına katkı sağlamayı amaçlayan bir projedir. Kariyer gelişim planlarını somut adımlara dönüştürmelerini destekleyen uygulamalar sunarak öğrencilere yardımcı olur.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="/uye-ol"
+            class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_18px_40px_rgba(255,151,0,0.22)]"
+          >
+            Şimdi Üye Ol
+          </a>
+          <a
+            href="/simdi-indir"
+            class="btn btn-lg rounded-full border border-[#8338ec]/20 bg-[#8338ec]/[0.08] px-8 text-[#6320b0] shadow-[0_14px_30px_rgba(131,56,236,0.12)] hover:border-[#8338ec] hover:bg-[#8338ec] hover:text-white"
+          >
+            itüöder App
+          </a>
+        </div>
+
+        <div class="inline-flex rounded-full border border-[#8338ec]/20 bg-[#8338ec]/[0.07] px-4 py-2.5 text-sm font-semibold text-[#5e25a8]">
+          Destekten sadece itüöder üyeleri faydalanabilir.
+        </div>
+
+        <!-- Metrikler -->
+        <div class="grid gap-4 sm:grid-cols-3">
+          {stats.map((item) => (
+            <div class="career-card surface-card p-5">
+              <p class="font-display text-[2.1rem] font-bold leading-none text-[#1B1B1B]">{item.value}</p>
+              <div class="mt-3 flex items-center gap-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#8338ec]"></span>
+                <p class="text-sm uppercase tracking-[0.18em] text-[#1B1B1B]/46">{item.label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sağ: Hero Kart -->
+      <aside class="surface-card relative overflow-hidden p-4 sm:p-5">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,151,0,0.12),transparent_16rem),radial-gradient(circle_at_bottom_right,rgba(131,56,236,0.14),transparent_18rem)]"></div>
+        <div class="relative career-soft rounded-[1.85rem] border p-6 sm:p-7">
+          <!-- Logo + etiket -->
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <img
+              src="/kimlikler/kariyergelisimdestegi.png"
+              alt="Kariyer Gelişim Desteği logosu"
+              class="h-16 w-auto object-contain sm:h-20"
+            />
+            <div class="rounded-[1.2rem] border border-[#8338ec]/16 bg-white px-4 py-3 text-right shadow-[0_12px_24px_rgba(131,56,236,0.08)]">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#1B1B1B]/42">itüöder projesi</p>
+              <p class="mt-1 text-sm font-bold text-[#8338ec]">Kariyer Desteği</p>
+            </div>
+          </div>
+
+          <!-- Alt iki kart -->
+          <div class="mt-8 grid gap-4 sm:grid-cols-[1fr_0.92fr]">
+            <div class="career-dark rounded-[1.5rem] p-5 text-white shadow-[0_22px_50px_rgba(131,56,236,0.18)]">
+              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[#d4a8ff]/72">Kimin için?</p>
+              <p class="mt-3 max-w-[15ch] font-display text-[1.8rem] font-bold leading-[1.02]">
+                İTÜ öğrencilerine özel kariyer fırsatları.
+              </p>
+            </div>
+
+            <div class="career-card rounded-[1.5rem] border p-4">
+              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[#6320b0]">Dijital erişim</p>
+              <div class="mt-3 flex flex-col gap-3">
+                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm">
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#8338ec]/10 text-[#6320b0]">
+                    <AppIcon name="appstore" class="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p class="text-xs font-bold text-[#1B1B1B]">App Store</p>
+                    <p class="text-[0.65rem] text-[#1B1B1B]/50">iOS</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 rounded-xl bg-white p-3 shadow-sm">
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[#8338ec]/10 text-[#6320b0]">
+                    <AppIcon name="android" class="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p class="text-xs font-bold text-[#1B1B1B]">Google Play</p>
+                    <p class="text-[0.65rem] text-[#1B1B1B]/50">Android</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alt bilgi kartları -->
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-[1.45rem] border border-[#8338ec]/18 bg-[#8338ec]/[0.07] p-4">
+              <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#6320b0] shadow-sm">
+                <AppIcon name="target" class="h-5 w-5" />
+              </span>
+              <p class="mt-3 text-sm leading-7 text-[#1B1B1B]/66">
+                Hedeflerine uygun şirket ilanlarını öncelikli gör.
+              </p>
+            </div>
+            <div class="rounded-[1.45rem] border border-[#8338ec]/16 bg-white p-4 shadow-[0_14px_28px_rgba(131,56,236,0.08)]">
+              <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#8338ec]/10 text-[#6320b0] shadow-sm">
+                <AppIcon name="mentorship" class="h-5 w-5" />
+              </span>
+              <p class="mt-3 text-sm leading-7 text-[#1B1B1B]/66">
+                Sektör profesyonelleriyle birebir mentorluk bağlantısı.
+              </p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ─── NASIL ÇALIŞIR? ─── -->
+  <section id="surec" class="section-space-tight pt-2">
+    <div class="site-shell">
+      <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div class="space-y-4">
+          <span class="eyebrow">Nasıl çalışır?</span>
+          <h2 class="section-title max-w-[12ch]">
+            3 adımda kariyer desteğine ulaş.
+          </h2>
+        </div>
+        <p class="max-w-[34rem] text-base leading-8 text-[#1B1B1B]/66">
+          Üyelikten uygulamaya, ilanlardan başvuruya kadar tüm süreç mobil uygulamandan yönetilir. Hızlı, net ve erişilebilir.
+        </p>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        {steps.map((item, index) => (
+          <article class:list={[
+            'surface-card flex h-full flex-col p-6 sm:p-7',
+            index === 0 ? 'career-card shadow-[0_20px_44px_rgba(131,56,236,0.08)]' : '',
+            index === 2 ? 'bg-[linear-gradient(180deg,#1a0a35_0%,#2d1260_40%,#1B1B1B_100%)] text-white shadow-[0_24px_55px_rgba(131,56,236,0.22)]' : '',
+          ]}>
+            <div class="flex items-start justify-between gap-4">
+              <span class:list={[
+                'inline-flex h-12 w-12 items-center justify-center rounded-full text-sm font-semibold',
+                index === 2
+                  ? 'bg-[#8338ec]/25 text-white'
+                  : 'border border-[#8338ec]/18 bg-[#8338ec]/[0.08] text-[#6320b0]',
+              ]}>
+                {item.step}
+              </span>
+            </div>
+
+            <h3 class:list={[
+              'mt-6 font-display text-[1.8rem] font-bold leading-[1.04]',
+              index === 2 ? 'text-white' : 'text-[#1B1B1B]',
+            ]}>
+              {item.title}
+            </h3>
+
+            <p class:list={[
+              'mt-4 text-sm leading-7',
+              index === 2 ? 'text-white/72' : 'text-[#1B1B1B]/68',
+            ]}>
+              {item.description}
+            </p>
+
+            {item.actionLabel && item.actionHref && (
+              <a
+                href={item.actionHref}
+                class:list={[
+                  'mt-6 inline-flex items-center gap-2 text-sm font-semibold',
+                  index === 2 ? 'text-[#d4a8ff]' : 'text-[#6320b0]',
+                ]}
+              >
+                {item.actionLabel}
+                <span aria-hidden="true">→</span>
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AVANTAJLAR ─── -->
+  <section class="section-space">
+    <div class="site-shell">
+      <div class="mb-12 grid gap-6 xl:grid-cols-2">
+        <!-- Sol: Dark kart -->
+        <article class="overflow-hidden rounded-[2rem] border border-[#8338ec]/16 bg-[linear-gradient(145deg,#130827_0%,#1e0f40_38%,#1B1B1B_100%)] text-white shadow-[0_28px_70px_rgba(131,56,236,0.18)]">
+          <div class="p-7 sm:p-9">
+            <div class="flex items-center justify-between gap-4">
+              <span class="inline-flex rounded-full border border-[#8338ec]/20 bg-[#8338ec]/15 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#d4a8ff]">
+                Neden önemli?
+              </span>
+              <img
+                src="/kimlikler/kariyergelisimdestegi.png"
+                alt="Kariyer Gelişim Desteği logosu"
+                class="h-8 w-auto object-contain opacity-90"
+              />
+            </div>
+
+            <div class="mt-6">
+              <h2 class="font-display text-[2rem] font-bold leading-[1.02] text-white">
+                Kariyer planını somut adımlara dönüştür.
+              </h2>
+              <p class="mt-4 text-base leading-8 text-white/72">
+                Üniversite yılları, kariyerin temellerinin atıldığı kritik bir dönem. itüöder Kariyer Gelişim Desteği ile bu süreci rastgele geçirmek yerine, planlı ve destekli bir yolculuğa çıkabilirsin.
+              </p>
+
+              <ul class="mt-6 space-y-3 text-sm leading-7 text-white/76">
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-[#FF9700]"></span>
+                  <span>Sana özel eşleştirilmiş şirket ve ilanlar</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-[#FF9700]"></span>
+                  <span>Sektör deneyimlileriyle birebir mentorluk görüşmeleri</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-[#FF9700]"></span>
+                  <span>CV, mülakat ve kişisel marka geliştirme desteği</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 rounded-full bg-[#FF9700]"></span>
+                  <span>Şirket tanışma günleri ve live kariyer etkinlikleri</span>
+                </li>
+              </ul>
+
+              <a
+                href="/uye-ol"
+                class="mt-7 inline-flex items-center gap-2 rounded-full bg-[#8338ec] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#6e2fca]"
+              >
+                Şimdi Üye Ol →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sağ: Avantaj grid (2x3) -->
+        <div class="grid gap-4 sm:grid-cols-2">
+          {benefits.slice(0, 4).map((b, i) => (
+            <div class:list={[
+              'surface-card group relative overflow-hidden p-6 transition duration-300 hover:-translate-y-1',
+              i === 1 ? 'career-card' : '',
+            ]}>
+              <div class="icon-chip mb-4 h-12 w-12 rounded-2xl text-[#6320b0]">
+                <AppIcon name={b.icon} class="h-5 w-5" />
+              </div>
+              <h3 class="mb-2 font-bold text-[#1B1B1B]">{b.title}</h3>
+              <p class="text-sm leading-7 text-[#1B1B1B]/62">{b.description}</p>
+              <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#8338ec] to-[#c77dff] transition-all duration-500 group-hover:w-full"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Alt iki avantaj -->
+      <div class="grid gap-4 sm:grid-cols-2">
+        {benefits.slice(4).map((b) => (
+          <div class="surface-card group relative overflow-hidden p-6 transition duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="icon-chip h-12 w-12 flex-shrink-0 rounded-2xl bg-[#8338ec]/10 text-[#6320b0]">
+                <AppIcon name={b.icon} class="h-5 w-5" />
+              </div>
+              <div>
+                <h3 class="font-bold text-[#1B1B1B]">{b.title}</h3>
+                <p class="mt-1 text-sm leading-7 text-[#1B1B1B]/62">{b.description}</p>
+              </div>
+            </div>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#8338ec] to-[#c77dff] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ALINTI / TEŞVİK ─── -->
+  <section class="section-space-tight">
+    <div class="site-shell grid gap-6 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+
+      <!-- Sol: Neden önemli kart -->
+      <div class="career-soft surface-card p-7 sm:p-8">
+        <span class="career-chip eyebrow">Kariyer planla</span>
+        <h2 class="mt-5 font-display text-[2.3rem] font-bold leading-[1.02] text-[#1B1B1B] sm:text-[2.8rem]">
+          Fırsatlar geldiğinde hazır olmak, fark yaratır.
+        </h2>
+        <p class="mt-4 text-base leading-8 text-[#1B1B1B]/68">
+          Kariyer planlaması çoğu zaman ertelenir. Ama erken adım atanlar, daha donanımlı, daha özgüvenli ve iş hayatına çok daha güçlü başlıyor.
+        </p>
+        <div class="mt-7 space-y-3">
+          {[
+            "Staj başvurularında hangi şirketi seçeceğini bilemiyorum diyenlere",
+            "CV'si hazır ama geri dönüş alamayanlara",
+            "Mülakat öncesi ne sorulacağını bilmek isteyenlere",
+            "Kariyer hedefleri belirsizleşenlere",
+          ].map((item) => (
+            <div class="rounded-[1.35rem] border border-[#8338ec]/18 bg-[#8338ec]/[0.07] px-4 py-4 text-sm leading-7 text-[#1B1B1B]/70">
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sağ: Alıntı kart -->
+      <article class="overflow-hidden rounded-[2rem] border border-[#8338ec]/16 bg-[linear-gradient(145deg,#0f0620_0%,#1d0c45_38%,#1B1B1B_100%)] text-white shadow-[0_28px_70px_rgba(131,56,236,0.18)]">
+        <div class="flex h-full flex-col justify-between p-7 sm:p-9">
+          <div>
+            <span class="career-chip-dark eyebrow">öğrenci deneyimi</span>
+            <blockquote class="mt-6 font-display text-[1.9rem] font-bold leading-[1.08] text-white sm:text-[2.3rem]">
+              "Kariyer gelişim desteği sayesinde hangi sektöre yöneleceğimi netleştirdim. İlk stajımı bu platform üzerinden aldım."
+            </blockquote>
+            <p class="mt-6 text-sm uppercase tracking-[0.2em] text-white/46">
+              — İTÜ Bilgisayar Mühendisliği, 3. sınıf
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href="/uye-ol"
+              class="btn btn-primary rounded-full px-6 py-3 text-sm shadow-[0_12px_28px_rgba(255,151,0,0.22)]"
+            >
+              Üye Ol, Fırsatları Gör
+            </a>
+            <a
+              href="/simdi-indir"
+              class="inline-flex items-center gap-2 rounded-full border border-[#8338ec]/20 bg-[#8338ec]/15 px-6 py-3 text-sm font-semibold text-[#d4a8ff] transition hover:bg-[#8338ec] hover:text-white"
+            >
+              Uygulamayı İndir →
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ─── SON CTA ─── -->
+  <section class="section-space-tight pt-0">
+    <div class="site-shell">
+      <div class="overflow-hidden rounded-[2.35rem] border border-[#8338ec]/16 bg-[linear-gradient(135deg,#0d0521_0%,#1b0a45_40%,#1B1B1B_100%)] text-white shadow-[0_28px_70px_rgba(131,56,236,0.18)]">
+        <div class="grid gap-8 p-7 sm:p-9 lg:grid-cols-[minmax(0,0.95fr)_minmax(17rem,0.7fr)] lg:items-center lg:p-12">
+          <div>
+            <span class="career-chip-dark eyebrow">Şimdi Başla</span>
+            <h2 class="mt-5 font-display text-[2.35rem] font-bold leading-[1.02] text-white sm:text-[3rem]">
+              Kariyer yolculuğuna bugün adım at.
+            </h2>
+            <p class="mt-4 max-w-[34rem] text-base leading-8 text-white/72">
+              İTÜ öğrencisi olarak sana özel hazırlanmış kariyer fırsatlarına ulaşmak için tek yapman gereken itüöder üyesi olmak.
+            </p>
+          </div>
+
+          <div class="grid gap-3">
+            <a
+              href="/uye-ol"
+              class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_18px_40px_rgba(255,151,0,0.24)]"
+            >
+              Şimdi Üye Ol
+            </a>
+            <a
+              href="/simdi-indir"
+              class="btn btn-lg rounded-full border border-[#8338ec]/30 bg-[#8338ec] px-8 text-white shadow-[0_16px_34px_rgba(131,56,236,0.25)] hover:bg-[#6e2fca]"
+            >
+              itüöder Uygulaması
+            </a>
+            <a
+              href="/bagisci-ol"
+              class="btn btn-lg rounded-full border border-white/12 bg-transparent px-8 text-white shadow-none hover:bg-white/[0.08]"
+            >
+              Destek Ol
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ─── Renk Chip'leri ─── */
+  .career-chip {
+    border-color: rgba(131, 56, 236, 0.18);
+    background: rgba(131, 56, 236, 0.08);
+    color: #6320b0;
+  }
+
+  .career-chip-dark {
+    border-color: rgba(131, 56, 236, 0.20);
+    background: rgba(131, 56, 236, 0.15);
+    color: #d4a8ff;
+  }
+
+  /* ─── Kart Varyantları ─── */
+  .career-card {
+    border-color: rgba(131, 56, 236, 0.18);
+    background: linear-gradient(180deg, rgba(131, 56, 236, 0.08) 0%, #ffffff 76%);
+  }
+
+  .career-soft {
+    border-color: rgba(131, 56, 236, 0.16);
+    background: linear-gradient(180deg, rgba(131, 56, 236, 0.08) 0%, #f5f5f7 100%);
+  }
+
+  .career-dark {
+    background: linear-gradient(145deg, #1a0a35 0%, #2d1260 52%, #1b1b1b 100%);
+  }
+</style>

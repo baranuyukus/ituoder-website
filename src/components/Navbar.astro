@@ -1,0 +1,381 @@
+---
+import AppIcon from './AppIcon.astro';
+import { projectNavItems } from '../data/projects';
+
+const primaryLinks = [
+  { name: 'Ana Sayfa', href: '/' },
+  { name: 'Hakkımızda', href: '/hakkimizda' },
+  { name: 'Gelişmeler', href: '/gelismeler', aliases: ['/gelişmeler'] },
+  { name: 'İletişim', href: '/iletisim' },
+] as const;
+
+const normalizePath = (path: string) => decodeURI(path).replace(/\/$/, '') || '/';
+const pathname = normalizePath(Astro.url.pathname);
+const isActive = (href: string, aliases: readonly string[] = []) =>
+  [href, ...aliases].map(normalizePath).includes(pathname);
+const isProjectActive = ['/projelerimiz', ...projectNavItems.map((item) => item.href)]
+  .map(normalizePath)
+  .includes(pathname);
+---
+
+<div
+  data-navbar-wrapper
+  class="sticky top-0 z-50 border-b border-[color:var(--brand-outline)] bg-[color:rgba(245,245,247,0.82)] backdrop-blur-2xl transition-transform duration-300"
+>
+  <div data-navbar class="site-shell py-3">
+    <div class="navbar min-h-[5.25rem] rounded-[1.75rem] border border-[color:var(--brand-outline)] bg-[color:rgba(255,255,255,0.92)] px-3 shadow-[0_16px_40px_rgba(27,27,27,0.06)] sm:px-4">
+      <div class="navbar-start">
+        <a href="/" class="inline-flex items-center rounded-full px-2 py-2 transition hover:bg-[#1B1B1B]/4" aria-label="itüöder ana sayfa">
+          <img src="/home/logo-mark.png" alt="itüöder logosu" class="h-8 w-auto object-contain md:h-9" />
+        </a>
+      </div>
+
+      <div class="navbar-center hidden lg:flex">
+        <nav class="flex items-center gap-1 rounded-full border border-[color:var(--brand-outline)] bg-[#F5F5F7] p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]">
+          {primaryLinks.slice(0, 2).map((link) => (
+            <a
+              href={link.href}
+              aria-current={isActive(link.href, link.aliases ?? []) ? 'page' : undefined}
+              class:list={[
+                'rounded-full px-4 py-2.5 text-sm font-semibold tracking-[0.02em] transition',
+                isActive(link.href, link.aliases ?? [])
+                  ? 'bg-white text-[#1B1B1B] shadow-[0_8px_22px_rgba(27,27,27,0.06)]'
+                  : 'text-[#1B1B1B]/66 hover:bg-white hover:text-[#FF9700]',
+              ]}
+            >
+              {link.name}
+            </a>
+          ))}
+
+          <div class="group relative flex items-center gap-1 rounded-full px-1">
+            <a
+              href="/projelerimiz"
+              aria-current={isProjectActive ? 'page' : undefined}
+              class:list={[
+                'inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold tracking-[0.02em] transition',
+                isProjectActive
+                  ? 'bg-white text-[#1B1B1B] shadow-[0_8px_22px_rgba(27,27,27,0.06)]'
+                  : 'text-[#1B1B1B]/66 hover:bg-white hover:text-[#FF9700]',
+              ]}
+            >
+              <span>Projeler</span>
+            </a>
+            <button
+              type="button"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full text-[#1B1B1B]/56 transition hover:bg-white hover:text-[#FF9700] focus:bg-white focus:text-[#FF9700]"
+              aria-label="Projeler alt menüsünü göster"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+
+            <div class="pointer-events-none invisible absolute left-0 top-[calc(100%+0.9rem)] z-20 w-[22rem] translate-y-2 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+              <div class="rounded-[1.55rem] border border-[color:var(--brand-outline)] bg-white p-2 shadow-[0_24px_48px_rgba(27,27,27,0.12)]">
+                <a
+                  href="/projelerimiz"
+                  class="group flex items-center justify-between rounded-[1.1rem] px-4 py-3 text-sm font-semibold text-[#1B1B1B] transition hover:bg-[#F5F5F7] hover:text-[#FF9700]"
+                >
+                  <span>Tüm projeler</span>
+                  <span class="text-[#1B1B1B]/38 transition group-hover:text-[#FF9700]">→</span>
+                </a>
+                <div class="mt-1 grid gap-1">
+                  {projectNavItems.map((item) => (
+                    <a
+                      href={item.href}
+                      aria-current={isActive(item.href) ? 'page' : undefined}
+                      class:list={[
+                        'group flex items-start gap-3 rounded-[1.1rem] px-4 py-3 transition',
+                        isActive(item.href)
+                          ? 'bg-[#F5F5F7] text-[#1B1B1B]'
+                          : 'text-[#1B1B1B]/72 hover:bg-[#F5F5F7] hover:text-[#FF9700]',
+                      ]}
+                    >
+                      <span class="icon-chip h-10 w-10 rounded-[0.95rem] text-[#FF9700]">
+                        <AppIcon name={item.icon} class="h-4 w-4" />
+                      </span>
+                      <span class="min-w-0">
+                        <span class="block text-sm font-semibold text-[#1B1B1B] transition group-hover:text-[#FF9700]">{item.title}</span>
+                        <span class="mt-1 block text-xs leading-6 text-[#1B1B1B]/56">{item.description}</span>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {primaryLinks.slice(2).map((link) => (
+            <a
+              href={link.href}
+              aria-current={isActive(link.href, link.aliases ?? []) ? 'page' : undefined}
+              class:list={[
+                'rounded-full px-4 py-2.5 text-sm font-semibold tracking-[0.02em] transition',
+                isActive(link.href, link.aliases ?? [])
+                  ? 'bg-white text-[#1B1B1B] shadow-[0_8px_22px_rgba(27,27,27,0.06)]'
+                  : 'text-[#1B1B1B]/66 hover:bg-white hover:text-[#FF9700]',
+              ]}
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <div class="navbar-end gap-2">
+        <a href="/bagisci-ol" class="btn btn-sm hidden rounded-full border-[color:var(--brand-outline)] bg-white px-4 tracking-[0.02em] text-[#1B1B1B] shadow-none hover:border-[#FF9700]/30 hover:bg-[#FF9700] hover:text-white sm:inline-flex">
+          Bağışçı Ol
+        </a>
+        <a href="/uye-ol" class="btn btn-primary btn-sm hidden rounded-full px-5 tracking-[0.02em] shadow-[0_12px_30px_rgba(255,151,0,0.24)] sm:inline-flex">
+          Üye Ol
+        </a>
+        <button
+          type="button"
+          data-mobile-toggle
+          class="btn btn-circle border border-[color:var(--brand-outline)] bg-white text-[#1B1B1B] shadow-none hover:border-[#FF9700]/28 hover:bg-[#F5F5F7] lg:hidden"
+          aria-label="Menüyü aç"
+          aria-expanded="false"
+          aria-controls="mobile-nav-panel"
+        >
+          <span data-icon-open aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16" />
+            </svg>
+          </span>
+          <span data-icon-close class="hidden" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  data-mobile-overlay
+  class="pointer-events-none fixed inset-0 z-[98] bg-[#1B1B1B]/38 opacity-0 transition duration-300 lg:hidden"
+  aria-hidden="true"
+></div>
+
+<aside
+  id="mobile-nav-panel"
+  data-mobile-panel
+  class="pointer-events-none fixed left-0 top-0 z-[99] h-full w-[min(22rem,85vw)] -translate-x-full opacity-0 transition duration-300 ease-out lg:hidden"
+  aria-hidden="true"
+>
+  <div class="flex h-full flex-col overflow-y-auto bg-[#F5F5F7] px-5 pb-6 pt-6 shadow-[8px_0_40px_rgba(27,27,27,0.12)]">
+    <div class="mb-4 flex items-center justify-between">
+      <a href="/" class="inline-flex items-center" data-mobile-link>
+        <img src="/home/logo-mark.png" alt="itüöder logosu" class="h-8 w-auto object-contain" />
+      </a>
+      <button
+        type="button"
+        data-mobile-close
+        class="btn btn-circle btn-sm border border-[color:var(--brand-outline)] bg-white text-[#1B1B1B] shadow-none hover:border-[#FF9700]/28 hover:bg-[#F5F5F7]"
+        aria-label="Menüyü kapat"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="mt-4 flex flex-col gap-2.5">
+      {primaryLinks.slice(0, 2).map((link, index) => (
+        <a
+          href={link.href}
+          data-mobile-link
+          aria-current={isActive(link.href, link.aliases ?? []) ? 'page' : undefined}
+          class:list={[
+            'flex items-center justify-between rounded-[1.1rem] border px-4 py-3.5 text-[1rem] font-semibold tracking-[0.02em] transition',
+            isActive(link.href, link.aliases ?? [])
+              ? 'border-[#FF9700]/24 bg-white text-[#1B1B1B] shadow-[0_10px_25px_rgba(255,151,0,0.08)]'
+              : 'border-[color:var(--brand-outline)] bg-[color:rgba(255,255,255,0.64)] text-[#1B1B1B] hover:border-[#FF9700]/24 hover:bg-white hover:text-[#FF9700]',
+          ]}
+        >
+          <span>{link.name}</span>
+          <span class="text-xs font-semibold uppercase tracking-[0.24em] text-[#1B1B1B]/35">0{index + 1}</span>
+        </a>
+      ))}
+
+      <div class="rounded-[1.3rem] border border-[color:var(--brand-outline)] bg-white/70 p-3">
+        <a
+          href="/projelerimiz"
+          data-mobile-link
+          aria-current={isProjectActive ? 'page' : undefined}
+          class:list={[
+            'flex items-center justify-between rounded-[1rem] px-3 py-3 text-[1rem] font-semibold tracking-[0.02em] transition',
+            isProjectActive ? 'bg-[#F5F5F7] text-[#1B1B1B]' : 'text-[#1B1B1B] hover:bg-[#F5F5F7] hover:text-[#FF9700]',
+          ]}
+        >
+          <span>Projeler</span>
+          <span class="text-xs uppercase tracking-[0.24em] text-[#1B1B1B]/35">03</span>
+        </a>
+
+        <div class="mt-3 grid gap-2 border-t border-[color:var(--brand-outline)] pt-3">
+          {projectNavItems.map((item) => (
+            <a
+              href={item.href}
+              data-mobile-link
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              class:list={[
+                'flex items-start gap-3 rounded-[1rem] px-3 py-3 transition',
+                isActive(item.href) ? 'group bg-[#F5F5F7] text-[#1B1B1B]' : 'group text-[#1B1B1B]/78 hover:bg-[#F5F5F7] hover:text-[#FF9700]',
+              ]}
+            >
+              <span class="icon-chip h-10 w-10 rounded-[0.9rem] text-[#FF9700]">
+                <AppIcon name={item.icon} class="h-4 w-4" />
+              </span>
+              <span class="min-w-0">
+                <span class="block text-sm font-semibold text-[#1B1B1B] transition group-hover:text-[#FF9700]">{item.title}</span>
+                <span class="mt-1 block text-xs leading-6 text-[#1B1B1B]/56">{item.description}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {primaryLinks.slice(2).map((link, index) => (
+        <a
+          href={link.href}
+          data-mobile-link
+          aria-current={isActive(link.href, link.aliases ?? []) ? 'page' : undefined}
+          class:list={[
+            'flex items-center justify-between rounded-[1.1rem] border px-4 py-3.5 text-[1rem] font-semibold tracking-[0.02em] transition',
+            isActive(link.href, link.aliases ?? [])
+              ? 'border-[#FF9700]/24 bg-white text-[#1B1B1B] shadow-[0_10px_25px_rgba(255,151,0,0.08)]'
+              : 'border-[color:var(--brand-outline)] bg-[color:rgba(255,255,255,0.64)] text-[#1B1B1B] hover:border-[#FF9700]/24 hover:bg-white hover:text-[#FF9700]',
+          ]}
+        >
+          <span>{link.name}</span>
+          <span class="text-xs font-semibold uppercase tracking-[0.24em] text-[#1B1B1B]/35">0{index + 4}</span>
+        </a>
+      ))}
+    </nav>
+
+    <div class="mt-auto border-t border-[color:var(--brand-outline)] pt-4 text-sm text-[#1B1B1B]/55">
+      dernek@ituogrenci.org.tr
+    </div>
+  </div>
+</aside>
+
+<script is:inline>
+  (() => {
+    const initNavbar = () => {
+      const root = document.querySelector('[data-navbar]');
+      const wrapper = document.querySelector('[data-navbar-wrapper]');
+      if (!root || !wrapper) return;
+      if (root.dataset.navInitialized === 'true') return;
+      root.dataset.navInitialized = 'true';
+
+      const toggle = root.querySelector('[data-mobile-toggle]');
+      const overlay = document.querySelector('[data-mobile-overlay]');
+      const panel = document.querySelector('[data-mobile-panel]');
+      const closeBtn = panel?.querySelector('[data-mobile-close]');
+      const openIcon = root.querySelector('[data-icon-open]');
+      const closeIcon = root.querySelector('[data-icon-close]');
+      const mobileLinks = document.querySelectorAll('[data-mobile-link]');
+      const desktopBreakpoint = window.matchMedia('(min-width: 1024px)');
+
+      if (!toggle || !overlay || !panel) return;
+
+      let isOpen = false;
+      let lastScrollY = window.scrollY;
+
+      const showNavbar = () => wrapper.classList.remove('is-hidden');
+      const hideNavbar = () => {
+        if (!desktopBreakpoint.matches) wrapper.classList.add('is-hidden');
+      };
+
+      const setMenuOpen = (open) => {
+        isOpen = open;
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+        panel.setAttribute('aria-hidden', String(!open));
+        overlay.setAttribute('aria-hidden', String(!open));
+
+        if (open) {
+          overlay.classList.remove('opacity-0', 'pointer-events-none');
+          overlay.classList.add('opacity-100', 'pointer-events-auto');
+          panel.classList.remove('-translate-x-full', 'opacity-0', 'pointer-events-none');
+          panel.classList.add('translate-x-0', 'opacity-100', 'pointer-events-auto');
+          showNavbar();
+        } else {
+          overlay.classList.remove('opacity-100', 'pointer-events-auto');
+          overlay.classList.add('opacity-0', 'pointer-events-none');
+          panel.classList.remove('translate-x-0', 'opacity-100', 'pointer-events-auto');
+          panel.classList.add('-translate-x-full', 'opacity-0', 'pointer-events-none');
+        }
+
+        if (openIcon) openIcon.classList.toggle('hidden', open);
+        if (closeIcon) closeIcon.classList.toggle('hidden', !open);
+
+        document.body.classList.toggle('overflow-hidden', open);
+      };
+
+      const closeMenu = () => setMenuOpen(false);
+      const toggleMenu = () => setMenuOpen(!isOpen);
+
+      const onScroll = () => {
+        if (desktopBreakpoint.matches || isOpen) {
+          showNavbar();
+          return;
+        }
+
+        const currentScrollY = window.scrollY;
+        if (currentScrollY <= 24) {
+          showNavbar();
+          lastScrollY = currentScrollY;
+          return;
+        }
+
+        if (currentScrollY > lastScrollY + 10) {
+          hideNavbar();
+        } else if (currentScrollY < lastScrollY - 10) {
+          showNavbar();
+        }
+
+        lastScrollY = currentScrollY;
+      };
+
+      toggle.addEventListener('click', toggleMenu);
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+      overlay.addEventListener('click', closeMenu);
+      mobileLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isOpen) closeMenu();
+      });
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      const onBreakpoint = (e) => {
+        if (e.matches) {
+          closeMenu();
+          showNavbar();
+        }
+      };
+
+      if (typeof desktopBreakpoint.addEventListener === 'function') desktopBreakpoint.addEventListener('change', onBreakpoint);
+      else if (typeof desktopBreakpoint.addListener === 'function') desktopBreakpoint.addListener(onBreakpoint);
+
+      setMenuOpen(false);
+      showNavbar();
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initNavbar, { once: true });
+    } else {
+      initNavbar();
+    }
+    document.addEventListener('astro:after-swap', initNavbar);
+  })();
+</script>
+
+<style>
+  [data-navbar-wrapper].is-hidden {
+    transform: translateY(calc(-100% - 1rem));
+  }
+</style>

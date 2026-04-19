@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AppIcon from '../components/AppIcon.astro';
+import { fetchPosts } from '../lib/api';
+import type { Post } from '../lib/api';
+
+// ─── API'dan yazıları çek ──────────────────────────────────────────────────────
+let posts: Post[] = [];
+let apiError = false;
+
+try {
+  posts = await fetchPosts();
+} catch (e) {
+  console.error('[gelismeler] API fetch failed:', e);
+  apiError = true;
+}
+
+// Yayın tarihine göre sırala (en yeni önce) — API zaten DESC döndürüyor ama garanti
+posts.sort((a, b) => {
+  if (!a.published_at) return 1;
+  if (!b.published_at) return -1;
+  return new Date(b.published_at).getTime() - new Date(a.published_at).getTime();
+});
+
+const [featuredPost, ...otherPosts] = posts;
+
+// Tarih formatlama — "2024-09-01 00:00:00" → "1 Eyl 2024"
+function formatDate(dateStr: string | null): string {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+// Tags dizisinden kategori etiketi
+function firstTag(tags: string[] | null): string {
+  if (!tags || tags.length === 0) return 'Gelişme';
+  return tags[0].charAt(0).toUpperCase() + tags[0].slice(1);
+}
+---
+
+<Layout title="İTÜ ÖDER – Gelişmeler | Derneğin Gündemi">
+
+  <!-- ─── HERO ─── -->
+  <section class="section-space relative overflow-hidden pb-8">
+    <div class="pointer-events-none absolute -left-20 top-4 h-[28rem] w-[28rem] rounded-full bg-[#FF9700]/12 blur-[130px]"></div>
+    <div class="pointer-events-none absolute right-0 top-20 h-[24rem] w-[24rem] rounded-full bg-[#1B1B1B]/6 blur-[110px]"></div>
+
+    <div class="site-shell relative z-10 space-y-7">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="eyebrow">Gelişmeler</span>
+        <span class="inline-flex items-center rounded-full border border-[color:var(--brand-outline)] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1B1B1B]/56">
+          derneğin gündemi ve projeleri
+        </span>
+      </div>
+
+      <div class="space-y-5">
+        <h1 class="section-title max-w-[14ch]">
+          Derneğin gündemini, projelerini ve saha temaslarını takip et.
+        </h1>
+        <p class="max-w-[39rem] text-lg leading-8 text-[#1B1B1B]/72">
+          Kariyer gelişiminden dayanışma çalışmalarına, kampüs buluşmalarından topluluk haberlerine kadar
+          tüm itüöder gelişmeleri burada. Öğrencilerin sesi olmaya devam ediyoruz.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── API HATA DURUMU ─── -->
+  {apiError && (
+    <section class="section-space-tight pt-0">
+      <div class="site-shell">
+        <div class="rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] p-8 text-center">
+          <p class="mb-1 font-bold text-[#1B1B1B]">İçerik yüklenemedi</p>
+          <p class="text-sm text-[#1B1B1B]/60">Gelişmeler şu an alınamıyor. Lütfen daha sonra tekrar dene.</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ─── ÖNCÜ YAZI ─── -->
+  {!apiError && featuredPost && (
+    <section class="section-space-tight pt-0">
+      <div class="site-shell">
+        <article class="surface-card overflow-hidden">
+          <a href={`/post/${featuredPost.slug}`} class="group block">
+            <div class="grid gap-0 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+              <!-- Görsel -->
+              <div class="relative min-h-[320px] overflow-hidden bg-[#F5F5F7] xl:min-h-full">
+                {featuredPost.cover_image ? (
+                  <img
+                    src={featuredPost.cover_image}
+                    alt={featuredPost.title}
+                    class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#FF9700]/20 to-[#1B1B1B]/10">
+                    <span class="icon-chip h-20 w-20 rounded-[1.6rem] border-white/30 bg-white/20 text-white/55 shadow-none">
+                      <AppIcon name="document" class="h-8 w-8" />
+                    </span>
+                  </div>
+                )}
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                {featuredPost.tags && featuredPost.tags.length > 0 && (
+                  <div class="absolute left-6 top-6 inline-flex rounded-full border border-white/20 bg-white/90 px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#1B1B1B] backdrop-blur-sm">
+                    {firstTag(featuredPost.tags)}
+                  </div>
+                )}
+              </div>
+
+              <!-- İçerik -->
+              <div class="flex flex-col justify-between p-7 sm:p-8 lg:p-10">
+                <div>
+                  <p class="text-[#FF9700] text-sm font-semibold uppercase tracking-[0.18em]">
+                    {formatDate(featuredPost.published_at)}
+                    {featuredPost.read_time && (
+                      <span class="ml-3 text-[#1B1B1B]/40 normal-case tracking-normal">· {featuredPost.read_time}</span>
+                    )}
+                  </p>
+                  <h2 class="mt-4 max-w-[15ch] font-display text-[2.15rem] font-bold leading-[1.04] text-[#1B1B1B] sm:text-[2.6rem]">
+                    {featuredPost.title}
+                  </h2>
+                  {featuredPost.summary && (
+                    <p class="mt-5 max-w-[34rem] text-base leading-8 text-[#1B1B1B]/70">
+                      {featuredPost.summary}
+                    </p>
+                  )}
+                </div>
+
+                <div class="mt-8 flex flex-col gap-4 border-t border-[color:var(--brand-outline)] pt-5 sm:flex-row sm:items-end sm:justify-between">
+                  <p class="max-w-[22rem] text-sm leading-7 text-[#1B1B1B]/58">
+                    itüöder gelişmelerinden en güncel içerik.
+                  </p>
+                  <span class="inline-flex items-center gap-2 text-sm font-semibold text-[#1B1B1B]">
+                    Devamını Oku
+                    <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+  )}
+
+  <!-- ─── TÜM YAZILAR ─── -->
+  {!apiError && otherPosts.length > 0 && (
+    <section class="section-space">
+      <div class="site-shell">
+        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div class="space-y-4">
+            <span class="eyebrow">Tüm Gelişmeler</span>
+            <h2 class="section-title max-w-[12ch]">
+              Güncel ve geçmiş tüm içeriklere göz at.
+            </h2>
+          </div>
+          <p class="max-w-[34rem] text-base leading-8 text-[#1B1B1B]/66">
+            Kampüs buluşmalarından proje lansmanlarına, dayanışma etkinliklerinden kurumsal haberlere kadar
+            tüm gelişmeleri kronolojik sırayla takip edebilirsin.
+          </p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {otherPosts.map((post) => (
+            <article class="surface-card overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(27,27,27,0.1)]">
+              <a href={`/post/${post.slug}`} class="group block h-full">
+                <!-- Görsel -->
+                <div class="relative h-[220px] overflow-hidden">
+                  {post.cover_image ? (
+                    <img
+                      src={post.cover_image}
+                      alt={post.title}
+                      class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#FF9700]/15 to-[#1B1B1B]/10">
+                      <span class="icon-chip h-16 w-16 rounded-[1.25rem] border-white/30 bg-white/20 text-white/55 shadow-none">
+                        <AppIcon name="document" class="h-6 w-6" />
+                      </span>
+                    </div>
+                  )}
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  {post.tags && post.tags.length > 0 && (
+                    <div class="absolute left-4 top-4 inline-flex rounded-full border border-white/20 bg-white/90 px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#1B1B1B] backdrop-blur-sm">
+                      {firstTag(post.tags)}
+                    </div>
+                  )}
+                </div>
+
+                <!-- İçerik -->
+                <div class="flex flex-col p-6">
+                  <p class="text-[#FF9700] text-xs font-semibold uppercase tracking-[0.18em]">
+                    {formatDate(post.published_at)}
+                    {post.read_time && (
+                      <span class="ml-2 text-[#1B1B1B]/40 normal-case tracking-normal">· {post.read_time}</span>
+                    )}
+                  </p>
+                  <h3 class="mt-3 font-display text-[1.45rem] font-bold leading-[1.08] text-[#1B1B1B]">
+                    {post.title}
+                  </h3>
+                  {post.summary && (
+                    <p class="text-clamp-3 mt-3 text-sm leading-7 text-[#1B1B1B]/70">
+                      {post.summary}
+                    </p>
+                  )}
+                  <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#1B1B1B]">
+                    Devamını Oku
+                    <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+                  </span>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ─── BOŞ DURUM ─── -->
+  {!apiError && posts.length === 0 && (
+    <section class="section-space-tight pt-0">
+      <div class="site-shell">
+        <div class="rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] p-8 text-center">
+          <p class="mb-1 font-bold text-[#1B1B1B]">Henüz yayın yok</p>
+          <p class="text-sm text-[#1B1B1B]/60">Yakında yeni içerikler eklenecek, takipte kal!</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ─── CTA ─── -->
+  <section class="section-space-tight pt-0">
+    <div class="site-shell">
+      <div class="overflow-hidden rounded-[2.3rem] border border-[color:var(--brand-outline)] bg-[linear-gradient(135deg,#1B1B1B,#242424)] text-white shadow-[0_28px_70px_rgba(27,27,27,0.16)]">
+        <div class="grid gap-8 p-7 sm:p-9 lg:grid-cols-[minmax(0,0.95fr)_minmax(17rem,0.7fr)] lg:items-center lg:p-12">
+          <div>
+            <span class="eyebrow border-white/10 bg-white/[0.08] text-white/78">Topluluğa katıl</span>
+            <h2 class="mt-5 font-display text-[2.35rem] font-bold leading-[1.02] text-white sm:text-[3rem]">
+              Gelişmelerin bir parçası ol, fark yarat.
+            </h2>
+            <p class="mt-4 max-w-[35rem] text-base leading-8 text-white/72">
+              itüöder topluluğuna katılarak derneğin projelerine destek olabilir, kampüsteki dayanışmanın
+              bir parçası haline gelebilirsin.
+            </p>
+          </div>
+
+          <div class="grid gap-3">
+            <a href="/uye-ol" class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_18px_40px_rgba(255,151,0,0.24)]">
+              itüöder'li Ol
+            </a>
+            <a href="/saha-projeleri" class="btn btn-lg rounded-full border border-white/12 bg-white/[0.08] px-8 text-white shadow-none hover:bg-white hover:text-[#1B1B1B]">
+              Saha Projelerini İncele
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

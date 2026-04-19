@@ -1,0 +1,503 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Süreç adımları
+const steps = [
+  {
+    step: "01",
+    title: "itüöder Üyesi Ol",
+    description:
+      "Abonman desteğine ulaşmak istiyorsan itüöder üyesi olman gerekiyor. Üyelik, tüm proje ve hizmetlerimize kapı açar.",
+    actionLabel: "Üye Ol",
+    actionHref: "/uye-ol",
+    note: null,
+  },
+  {
+    step: "02",
+    title: "Formu Doldur",
+    description:
+      "Ulaşım desteği almak istiyorsan formu doldur ve başvurunu tamamla. Paylaştığın bilgiler gizli tutulacak, endişenme.",
+    actionLabel: "Başvuru Formu",
+    actionHref: "https://ituogrenci.org.tr/ulasim-destegi",
+    note: "Lütfen endişelenme, paylaştığın bilgiler gizli tutulacak.",
+  },
+  {
+    step: "03",
+    title: "Abonmanın Tanımlanır",
+    description:
+      "Her ay belli sayıda öğrenciye ücretsiz abonman desteği ulaştırılır. Abonmanlar Belbim tarafından ay başında otomatik olarak tanımlanır.",
+    actionLabel: "Abonman Tanımlama",
+    actionHref: "https://ituogrenci.org.tr/ulasim-destegi",
+    note: "Belbim iş birliği ile gerçekleştirilir.",
+  },
+];
+
+// Neden önemli — maddeler
+const whyItems = [
+  "Staj, etkinlik veya kampüs yolculuklarında ulaşım maliyeti öğrencilerin en büyük gider kalemlerinden biri.",
+  "Ekonomik güçlük yaşayan öğrencilerin eğitimden kopmaması için sürdürülebilir destek sunulur.",
+  "Ulaşım kartı doğrudan öğrencinin hesabına tanımlanır; ek işlem gerekmez.",
+  "Belbim iş birliği ile resmi altyapı üzerinden güvenilir ve şeffaf bir süreç işletilir.",
+];
+
+// Avantajlar
+const benefits = [
+  {
+    icon: "01",
+    title: "Metro, Metrobüs, Otobüs",
+    description: "İstanbul toplu taşıma ağının tamamında geçerli Belbim abonmanı ile özgürce seyahat et.",
+  },
+  {
+    icon: "02",
+    title: "Aylık Otomatik Tanımlama",
+    description: "Abonman ay başında otomatik olarak kartına tanımlanır. Hiçbir şey yapman gerekmiyor.",
+  },
+  {
+    icon: "03",
+    title: "Gizlilik Güvencesi",
+    description: "Başvuruda paylaştığın kişisel bilgiler gizli tutulur ve yalnızca süreç için kullanılır.",
+  },
+  {
+    icon: "04",
+    title: "Öğrenci Odaklı Seçim",
+    description: "Her ay belli sayıda öğrenci, ihtiyaç durumu gözetilerek destekten yararlanmak üzere seçilir.",
+  },
+  {
+    icon: "05",
+    title: "Kurumsal İş Birliği",
+    description: "Belbim ile kurumsal iş birliği çerçevesinde hayata geçirilen güvenilir bir destek modeli.",
+  },
+  {
+    icon: "06",
+    title: "Sadece Üyelere Özel",
+    description: "Destekten yalnızca itüöder üyeleri faydalanabilir. Üyelik ile kapıları açıyorsun.",
+  },
+];
+
+const stats = [
+  { value: "100+", label: "Desteklenen Öğrenci" },
+  { value: "Ay Başı", label: "Otomatik Tanımlama" },
+  { value: "Ücretsiz", label: "Abonman Desteği" },
+];
+---
+
+<Layout title="İTÜ ÖDER – Ulaşım Desteği | Ücretsiz Abonman Projesi">
+
+  <!-- ─── HERO ─── -->
+  <section class="section-space relative overflow-hidden pb-8">
+    <div class="pointer-events-none absolute -left-24 top-0 h-[30rem] w-[30rem] rounded-full bg-[#d9062b]/10 blur-[130px]"></div>
+    <div class="pointer-events-none absolute right-0 top-16 h-[26rem] w-[26rem] rounded-full bg-[#1B1B1B]/5 blur-[120px]"></div>
+    <div class="pointer-events-none absolute left-[42%] top-24 h-[22rem] w-[22rem] rounded-full bg-[#FF9700]/8 blur-[120px]"></div>
+
+    <div class="site-shell relative z-10 grid gap-8 xl:grid-cols-[minmax(0,1.05fr)_minmax(24rem,0.85fr)] xl:items-center">
+
+      <!-- Sol: Metin -->
+      <div class="space-y-7">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="transit-chip eyebrow">Ulaşım Desteği</span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-outline)] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1B1B1B]/56 shadow-[0_10px_24px_rgba(217,6,43,0.06)]">
+            <span>Belbim iş birliğiyle</span>
+          </span>
+        </div>
+
+        <div class="space-y-5">
+          <h1 class="section-title max-w-[12ch]">
+            Ulaşım giderleri kafanı mı kurcalıyor?
+            <span class="block text-[#d9062b]">Senin için buradayız.</span>
+          </h1>
+          <p class="max-w-[39rem] text-lg leading-8 text-[#1B1B1B]/70">
+            <span class="font-semibold text-[#d9062b]">Ulaşım Desteği</span>, İTÜ öğrencilerine ücretsiz ulaşım abonmanı desteği sunan bir projedir. Öğrencilerin ulaşım ihtiyaçlarını karşılayarak eğitim yolculuklarını kolaylaştırıyoruz.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="https://ituogrenci.org.tr/ulasim-destegi"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_18px_40px_rgba(255,151,0,0.22)]"
+          >
+            Şimdi Talep Et
+          </a>
+          <a
+            href="/uye-ol"
+            class="btn btn-lg rounded-full border border-[#d9062b]/20 bg-[#d9062b]/[0.08] px-8 text-[#b00522] shadow-[0_14px_30px_rgba(217,6,43,0.12)] hover:border-[#d9062b] hover:bg-[#d9062b] hover:text-white"
+          >
+            Üye Ol
+          </a>
+        </div>
+
+        <div class="inline-flex rounded-full border border-[#d9062b]/20 bg-[#d9062b]/[0.07] px-4 py-2.5 text-sm font-semibold text-[#b00522]">
+          Destekten sadece itüöder üyeleri faydalanabilir.
+        </div>
+
+        <!-- Mini metrik bar -->
+        <div class="grid gap-4 sm:grid-cols-3">
+          {stats.map((item) => (
+            <div class="transit-card surface-card p-5">
+              <p class="font-display text-[2rem] font-bold leading-none text-[#1B1B1B]">{item.value}</p>
+              <div class="mt-3 flex items-center gap-2">
+                <span class="h-2.5 w-2.5 rounded-full bg-[#d9062b]"></span>
+                <p class="text-sm uppercase tracking-[0.18em] text-[#1B1B1B]/46">{item.label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sağ: Hero Kart -->
+      <aside class="surface-card relative overflow-hidden p-4 sm:p-5">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,151,0,0.12),transparent_16rem),radial-gradient(circle_at_bottom_right,rgba(217,6,43,0.14),transparent_18rem)]"></div>
+        <div class="relative transit-soft rounded-[1.85rem] border p-6 sm:p-7">
+
+          <!-- Logo + Belbim -->
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <img
+              src="/kimlikler/ulasımdestegi.png"
+              alt="Ulaşım Desteği logosu"
+              class="h-16 w-auto object-contain sm:h-20"
+            />
+            <div class="rounded-[1.2rem] border border-[#d9062b]/16 bg-white px-4 py-3 text-right shadow-[0_12px_24px_rgba(217,6,43,0.08)]">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#1B1B1B]/42">kurumsal iş birliği</p>
+              <p class="mt-1 text-sm font-bold text-[#d9062b]">Belbim</p>
+            </div>
+          </div>
+
+          <!-- Kart görseli / Ulaşım kartı temsil -->
+          <div class="mt-6 transit-dark rounded-[1.5rem] p-5 text-white shadow-[0_22px_50px_rgba(217,6,43,0.18)]">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[#ffb3be]/72">Ne sunuyoruz?</p>
+            <p class="mt-3 max-w-[18ch] font-display text-[1.8rem] font-bold leading-[1.02]">
+              Ücretsiz aylık ulaşım abonmanı.
+            </p>
+            <!-- Sahte kart görünümü -->
+            <div class="mt-5 rounded-[1rem] border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[0.65rem] font-semibold uppercase tracking-widest text-white/50">itüöder × Belbim</p>
+                  <p class="mt-1 text-base font-bold text-white">Ulaşım Abonmanı</p>
+                </div>
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-xs font-bold text-white">İBB</div>
+              </div>
+              <div class="mt-3 flex gap-2">
+                <span class="rounded-full bg-[#d9062b]/30 px-2.5 py-1 text-[0.65rem] font-bold text-[#ffb3be]">Metro</span>
+                <span class="rounded-full bg-[#d9062b]/30 px-2.5 py-1 text-[0.65rem] font-bold text-[#ffb3be]">Metrobüs</span>
+                <span class="rounded-full bg-[#d9062b]/30 px-2.5 py-1 text-[0.65rem] font-bold text-[#ffb3be]">Otobüs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alt iki mini kart -->
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-[1.45rem] border border-[#d9062b]/18 bg-[#d9062b]/[0.07] p-4">
+              <div class="mb-3 h-px w-8 bg-[#d9062b]"></div>
+              <p class="mt-3 text-sm leading-7 text-[#1B1B1B]/66">
+                Ay başında otomatik tanımlama — ekstra işlem yok.
+              </p>
+            </div>
+            <div class="rounded-[1.45rem] border border-[#d9062b]/16 bg-white p-4 shadow-[0_14px_28px_rgba(217,6,43,0.08)]">
+              <div class="mb-3 h-px w-8 bg-[#d9062b]"></div>
+              <p class="mt-3 text-sm leading-7 text-[#1B1B1B]/66">
+                Paylaştığın bilgiler gizli tutulur.
+              </p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ─── NASIL ÇALIŞIR? ─── -->
+  <section id="surec" class="section-space-tight pt-2">
+    <div class="site-shell">
+      <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div class="space-y-4">
+          <span class="eyebrow">Nasıl çalışır?</span>
+          <h2 class="section-title max-w-[12ch]">
+            3 adımda ücretsiz abonmanına kavuş.
+          </h2>
+        </div>
+        <p class="max-w-[34rem] text-base leading-8 text-[#1B1B1B]/66">
+          Üyelikten abonman tanımlamasına kadar tüm süreç net ve hızlı işliyor. Belbim altyapısı sayesinde ay başında kartına otomatik tanımlanıyor.
+        </p>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        {steps.map((item, index) => (
+          <article class:list={[
+            'surface-card flex h-full flex-col p-6 sm:p-7',
+            index === 0 ? 'transit-card shadow-[0_20px_44px_rgba(217,6,43,0.08)]' : '',
+            index === 2 ? 'transit-dark-card text-white shadow-[0_24px_55px_rgba(217,6,43,0.22)]' : '',
+          ]}>
+            <div class="flex items-start justify-between gap-4">
+              <span class:list={[
+                'inline-flex h-12 w-12 items-center justify-center rounded-full text-sm font-semibold',
+                index === 2
+                  ? 'bg-[#d9062b]/25 text-white'
+                  : 'border border-[#d9062b]/18 bg-[#d9062b]/[0.08] text-[#b00522]',
+              ]}>
+                {item.step}
+              </span>
+            </div>
+
+            <h3 class:list={[
+              'mt-6 font-display text-[1.8rem] font-bold leading-[1.04]',
+              index === 2 ? 'text-white' : 'text-[#1B1B1B]',
+            ]}>
+              {item.title}
+            </h3>
+
+            <p class:list={[
+              'mt-4 text-sm leading-7',
+              index === 2 ? 'text-white/72' : 'text-[#1B1B1B]/68',
+            ]}>
+              {item.description}
+            </p>
+
+            {item.note && (
+              <p class:list={[
+                'mt-3 text-xs leading-6 italic',
+                index === 2 ? 'text-[#ffb3be]/70' : 'text-[#b00522]/70',
+              ]}>
+                {item.note}
+              </p>
+            )}
+
+            <a
+              href={item.actionHref}
+              target={item.actionHref.startsWith('http') ? '_blank' : undefined}
+              rel={item.actionHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+              class:list={[
+                'mt-6 inline-flex items-center gap-2 text-sm font-semibold',
+                index === 2 ? 'text-[#ffb3be]' : 'text-[#b00522]',
+              ]}
+            >
+              {item.actionLabel}
+              <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── NEDEN ÖNEMLİ + AVANTAJLAR ─── -->
+  <section class="section-space">
+    <div class="site-shell">
+      <div class="grid gap-6 xl:grid-cols-2">
+
+        <!-- Sol: Dark kart -->
+        <article class="overflow-hidden rounded-[2rem] border border-[#d9062b]/16 bg-[linear-gradient(145deg,#2a000a_0%,#6b0119_38%,#1B1B1B_100%)] text-white shadow-[0_28px_70px_rgba(217,6,43,0.18)]">
+          <div class="p-7 sm:p-9">
+            <div class="flex items-center justify-between gap-4">
+              <span class="inline-flex rounded-full border border-[#d9062b]/25 bg-[#d9062b]/18 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#ffb3be]">
+                Neden önemli?
+              </span>
+              <img
+                src="/kimlikler/ulasımdestegi.png"
+                alt="Ulaşım Desteği logosu"
+                class="h-8 w-auto object-contain opacity-90"
+              />
+            </div>
+
+            <h2 class="mt-6 font-display text-[2rem] font-bold leading-[1.02] text-white">
+              Ulaşım maliyeti, eğitime erişimin önündeki en somut engellerden biri.
+            </h2>
+            <p class="mt-4 text-base leading-8 text-white/72">
+              İTÜ öğrencilerinin büyük bölümü her gün toplu taşıma kullanıyor. Ulaşım, bütçenin önemli bir kısmını götürüyor — biz bunu değiştirmek istiyoruz.
+            </p>
+
+            <ul class="mt-6 space-y-3 text-sm leading-7 text-white/76">
+              {whyItems.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-[#FF9700]"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="https://ituogrenci.org.tr/ulasim-destegi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-7 inline-flex items-center gap-2 rounded-full bg-[#d9062b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#b00522]"
+            >
+              Başvur →
+            </a>
+          </div>
+        </article>
+
+        <!-- Sağ: 2x3 avantaj grid -->
+        <div class="grid gap-4 sm:grid-cols-2">
+          {benefits.slice(0, 4).map((b, i) => (
+            <div class:list={[
+              'surface-card group relative overflow-hidden p-6 transition duration-300 hover:-translate-y-1',
+              i === 1 ? 'transit-card' : '',
+            ]}>
+              <div class="mb-4 text-2xl">{b.icon}</div>
+              <h3 class="mb-2 font-bold text-[#1B1B1B]">{b.title}</h3>
+              <p class="text-sm leading-7 text-[#1B1B1B]/62">{b.description}</p>
+              <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#d9062b] to-[#ff4d6a] transition-all duration-500 group-hover:w-full"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Alt iki avantaj yatay -->
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        {benefits.slice(4).map((b) => (
+          <div class="surface-card group relative overflow-hidden p-6 transition duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-[#d9062b]/10 text-xl">
+                {b.icon}
+              </div>
+              <div>
+                <h3 class="font-bold text-[#1B1B1B]">{b.title}</h3>
+                <p class="mt-1 text-sm leading-7 text-[#1B1B1B]/62">{b.description}</p>
+              </div>
+            </div>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#d9062b] to-[#ff4d6a] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ALINTI / TEŞVİK ─── -->
+  <section class="section-space-tight">
+    <div class="site-shell grid gap-6 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+
+      <!-- Sol: Durumsal kartlar -->
+      <div class="transit-soft surface-card p-7 sm:p-8">
+        <span class="transit-chip eyebrow">Kimler için?</span>
+        <h2 class="mt-5 font-display text-[2.3rem] font-bold leading-[1.02] text-[#1B1B1B] sm:text-[2.8rem]">
+          Ulaşım desteği seni bekliyor.
+        </h2>
+        <p class="mt-4 text-base leading-8 text-[#1B1B1B]/68">
+          Staj, kütüphane, laboratory, proje görüşmesi — her güne kampüse gitmen gerekiyor. Ulaşım maliyeti seni durdurmak zorunda değil.
+        </p>
+        <div class="mt-7 space-y-3">
+          {[
+            "Her gün ulaşım için fiyatlara bakıp bütçe hesaplayanlara",
+            "Staj veya part-time iş için şehrin farklı noktalarına gidenlere",
+            "Ayın sonuna doğru ulaşım parası bitmek üzere olanlara",
+            "Kampüs dışında yaşayıp her gün uzun yolculuk yapanlara",
+          ].map((item) => (
+            <div class="rounded-[1.35rem] border border-[#d9062b]/18 bg-[#d9062b]/[0.07] px-4 py-4 text-sm leading-7 text-[#1B1B1B]/70">
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sağ: Alıntı kartı -->
+      <article class="overflow-hidden rounded-[2rem] border border-[#d9062b]/16 bg-[linear-gradient(145deg,#180008_0%,#4a0113_38%,#1B1B1B_100%)] text-white shadow-[0_28px_70px_rgba(217,6,43,0.18)]">
+        <div class="flex h-full flex-col justify-between p-7 sm:p-9">
+          <div>
+            <span class="transit-chip-dark eyebrow">öğrenci deneyimi</span>
+            <blockquote class="mt-6 font-display text-[1.9rem] font-bold leading-[1.08] text-white sm:text-[2.3rem]">
+              "Ulaşım desteği sayesinde staj boyunca ulaşım stresi yaşamadan işime odaklanabildim. itüöder'e teşekkürler."
+            </blockquote>
+            <p class="mt-6 text-sm uppercase tracking-[0.2em] text-white/46">
+              — İTÜ Endüstri Mühendisliği, 4. sınıf
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://ituogrenci.org.tr/ulasim-destegi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary rounded-full px-6 py-3 text-sm shadow-[0_12px_28px_rgba(255,151,0,0.22)]"
+            >
+              Hemen Başvur
+            </a>
+            <a
+              href="/uye-ol"
+              class="inline-flex items-center gap-2 rounded-full border border-[#d9062b]/25 bg-[#d9062b]/18 px-6 py-3 text-sm font-semibold text-[#ffb3be] transition hover:bg-[#d9062b] hover:text-white"
+            >
+              Üye Ol →
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ─── SON CTA ─── -->
+  <section class="section-space-tight pt-0">
+    <div class="site-shell">
+      <div class="overflow-hidden rounded-[2.35rem] border border-[#d9062b]/16 bg-[linear-gradient(135deg,#150007_0%,#580116_40%,#1B1B1B_100%)] text-white shadow-[0_28px_70px_rgba(217,6,43,0.18)]">
+        <div class="grid gap-8 p-7 sm:p-9 lg:grid-cols-[minmax(0,0.95fr)_minmax(17rem,0.7fr)] lg:items-center lg:p-12">
+          <div>
+            <span class="transit-chip-dark eyebrow">Şimdi başla</span>
+            <h2 class="mt-5 font-display text-[2.35rem] font-bold leading-[1.02] text-white sm:text-[3rem]">
+              Ücretsiz abonmanını talep et.
+            </h2>
+            <p class="mt-4 max-w-[34rem] text-base leading-8 text-white/72">
+              İTÜ öğrencisi olarak ulaşım desteğine başvurabilmek için tek yapman gereken itüöder üyesi olmak. Üyelik sonrası formu doldur, gerisini biz halledelim.
+            </p>
+          </div>
+
+          <div class="grid gap-3">
+            <a
+              href="https://ituogrenci.org.tr/ulasim-destegi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_18px_40px_rgba(255,151,0,0.24)]"
+            >
+              Şimdi Talep Et
+            </a>
+            <a
+              href="/uye-ol"
+              class="btn btn-lg rounded-full border border-[#d9062b]/30 bg-[#d9062b] px-8 text-white shadow-[0_16px_34px_rgba(217,6,43,0.25)] hover:bg-[#b00522]"
+            >
+              itüöder'li Ol
+            </a>
+            <a
+              href="/bagisci-ol"
+              class="btn btn-lg rounded-full border border-white/12 bg-transparent px-8 text-white shadow-none hover:bg-white/[0.08]"
+            >
+              Destek Ol
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ─── Renk Chip'leri ─── */
+  .transit-chip {
+    border-color: rgba(217, 6, 43, 0.18);
+    background: rgba(217, 6, 43, 0.08);
+    color: #b00522;
+  }
+
+  .transit-chip-dark {
+    border-color: rgba(217, 6, 43, 0.22);
+    background: rgba(217, 6, 43, 0.18);
+    color: #ffb3be;
+  }
+
+  /* ─── Kart Varyantları ─── */
+  .transit-card {
+    border-color: rgba(217, 6, 43, 0.18);
+    background: linear-gradient(180deg, rgba(217, 6, 43, 0.08) 0%, #ffffff 76%);
+  }
+
+  .transit-soft {
+    border-color: rgba(217, 6, 43, 0.16);
+    background: linear-gradient(180deg, rgba(217, 6, 43, 0.08) 0%, #f5f5f7 100%);
+  }
+
+  .transit-dark {
+    background: linear-gradient(145deg, #2a000a 0%, #6b0119 52%, #1b1b1b 100%);
+  }
+
+  .transit-dark-card {
+    border-color: rgba(217, 6, 43, 0.18);
+    background: linear-gradient(180deg, #3a000f 0%, #5c0118 40%, #1b1b1b 100%);
+  }
+</style>

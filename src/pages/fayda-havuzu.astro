@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AppIcon from '../components/AppIcon.astro';
+import { fetchPartners } from '../lib/api';
+import type { Partner } from '../lib/api';
+
+// ─── API'dan iş ortaklarını çek ───────────────────────────────────────────────
+let partners: Partner[] = [];
+let apiError = false;
+
+try {
+  partners = await fetchPartners();
+} catch (e) {
+  console.error('[fayda-havuzu] API fetch failed:', e);
+  apiError = true;
+}
+
+// listing_order'a göre sırala (küçük = önce) — API zaten sıralayabilir ama garanti edelim
+partners.sort((a, b) => a.listing_order - b.listing_order);
+
+// Partner tipine göre CTA buton etiketi
+function ctaLabel(type: Partner['type']): string {
+  if (type === 'qrcode') return 'QR Kodu Gör';
+  if (type === 'codelist') return 'Kodu Göster';
+  return 'Fırsatı Gör';
+}
+---
+
+<Layout title="İTÜ ÖDER – Fayda Havuzu | Öğrenciye Özel İndirimler">
+
+  <!-- ─── HERO ─── -->
+  <section class="section-space relative overflow-hidden">
+    <div class="pointer-events-none absolute -top-32 left-1/2 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-[#FF9700]/12 blur-[140px]"></div>
+
+    <div class="site-shell relative z-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="eyebrow mb-6 inline-block">Özel İndirimler</span>
+        <h1 class="section-title mb-6">
+          itü<span class="text-[#FF9700]">öder</span><br />Fayda Havuzu
+        </h1>
+        <p class="mx-auto max-w-xl text-base leading-relaxed text-[#1B1B1B]/70 sm:text-lg sm:leading-relaxed">
+          Üyelerimize özel olarak anlaşma sağladığımız markalarda uygulanan indirim oranları ve avantajlar burada. Öğrenci cebine dost fırsatları kaçırma!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ORTAKLAR GRID ─── -->
+  <section class="section-space-tight relative">
+    <div class="pointer-events-none absolute -right-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[#FF9700]/6 blur-[100px]"></div>
+
+    <div class="site-shell relative z-10">
+
+      <!-- API hatası -->
+      {apiError && (
+        <div class="mx-auto mb-10 max-w-lg rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] p-6 text-center">
+          <p class="mb-1 font-bold text-[#1B1B1B]">İçerik yüklenemedi</p>
+          <p class="text-sm text-[#1B1B1B]/60">Fayda Havuzu verileri şu an alınamıyor. Lütfen daha sonra tekrar dene.</p>
+        </div>
+      )}
+
+      <!-- Boş durum -->
+      {!apiError && partners.length === 0 && (
+        <div class="mx-auto mb-10 max-w-lg rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] p-6 text-center">
+          <p class="mb-1 font-bold text-[#1B1B1B]">Henüz iş ortağı eklenmemiş</p>
+          <p class="text-sm text-[#1B1B1B]/60">Yakında yeni anlaşmalar eklenecek, takipte kal!</p>
+        </div>
+      )}
+
+      <!-- Kartlar -->
+      {partners.length > 0 && (
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {partners.map((partner) => (
+            <div
+              class="surface-card group relative flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#FF9700]/40 hover:shadow-[0_24px_60px_rgba(255,151,0,0.12)]"
+              data-partner-id={partner.id}
+            >
+              <!-- Görsel Alanı -->
+              <div class="relative flex h-48 w-full items-center justify-center bg-[#F5F5F7]">
+                {partner.image_url ? (
+                  <img
+                    src={partner.image_url}
+                    alt={partner.name}
+                    class="h-32 w-auto max-w-[70%] object-contain mix-blend-multiply"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-white/80 text-[#FF9700] shadow-sm backdrop-blur-md">
+                    <AppIcon name="gift" class="h-9 w-9" />
+                  </div>
+                )}
+
+                <!-- İndirim Badge -->
+                {partner.has_discount && partner.discount_rate && (
+                  <div class="absolute right-4 top-4 rounded-xl bg-[#FF9700] px-3 py-1.5 text-sm font-bold text-white shadow-sm">
+                    {partner.discount_rate}
+                  </div>
+                )}
+              </div>
+
+              <!-- İçerik Alanı -->
+              <div class="flex flex-1 flex-col p-6 sm:p-7">
+                {/* Konum */}
+                {partner.location && (
+                  <span class="mb-2 text-xs font-bold uppercase tracking-widest text-[#FF9700]">
+                    {partner.location}
+                  </span>
+                )}
+
+                <h3 class="mb-3 text-xl font-bold text-[#1B1B1B]">{partner.name}</h3>
+
+                {partner.description && (
+                  <p class="mb-6 text-sm leading-relaxed text-[#1B1B1B]/60 text-clamp-4">
+                    {partner.description}
+                  </p>
+                )}
+
+                <div class="mt-auto flex flex-wrap items-center gap-3">
+                  {/* Ana CTA */}
+                  {partner.button_url && (
+                    <a
+                      href={partner.button_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 font-semibold text-[#1B1B1B] transition-colors group-hover:text-[#FF9700]"
+                    >
+                      <span>{ctaLabel(partner.type)}</span>
+                      <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                  )}
+
+                  {/* Harita linki */}
+                  {partner.location_url && (
+                    <a
+                      href={partner.location_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 text-sm text-[#1B1B1B]/40 transition-colors hover:text-[#1B1B1B]"
+                      title="Haritada gör"
+                    >
+                      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <span>Harita</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <!-- Dekoratif Alt Çizgi -->
+              <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+            </div>
+          ))}
+        </div>
+      )}
+
+    </div>
+  </section>
+
+  <!-- ─── CTA BÖLÜMÜ ─── -->
+  <section class="section-space">
+    <div class="site-shell">
+      <div class="surface-card relative mx-auto max-w-4xl overflow-hidden p-10 text-center sm:p-16">
+        <div class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#FF9700]/10 blur-[80px]"></div>
+
+        <h2 class="mb-4 text-3xl font-extrabold text-[#1B1B1B] sm:text-4xl">
+          Henüz üye <span class="text-[#FF9700]">değil misin?</span>
+        </h2>
+        <p class="mx-auto mb-8 max-w-xl text-sm leading-relaxed text-[#1B1B1B]/70 sm:text-base">
+          Tüm bu indirimlerden ve çok daha fazlasından yararlanmak için hemen itüöder ailesine katıl.
+          Ödediğin aidatın karşılığını ilk kullandığın fırsatta fazlasıyla geri al.
+        </p>
+        <a
+          href="/uye-ol"
+          class="btn btn-primary rounded-full px-8 py-3.5 text-base font-bold shadow-[0_16px_40px_rgba(255,151,0,0.3)] transition hover:shadow-[0_24px_56px_rgba(255,151,0,0.4)]"
+        >
+          Hemen Üye Ol
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

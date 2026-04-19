@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AppIcon from '../components/AppIcon.astro';
+import { aboutIntro, supportCategories, coreValues } from '../data/about';
+---
+
+<Layout title="itüöder - Hakkımızda">
+
+  <!-- ─── HERO / INTRO ─── -->
+  <section class="section-space relative overflow-hidden">
+    <!-- subtle ornament -->
+    <div class="pointer-events-none absolute -top-28 right-0 h-[28rem] w-[28rem] rounded-full bg-[#FF9700]/8 blur-[120px]"></div>
+
+    <div class="site-shell relative z-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="eyebrow mb-6 inline-block">{aboutIntro.eyebrow}</span>
+        <h1 class="section-title mb-6">
+          itü<span class="text-[#FF9700]">öder</span> hakkında
+        </h1>
+        <p class="text-base leading-relaxed text-black/70 sm:text-lg sm:leading-relaxed">
+          {aboutIntro.body}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DESTEKLER ─── -->
+  <section class="section-space-tight relative">
+    <div class="pointer-events-none absolute -left-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[#FF9700]/6 blur-[100px]"></div>
+
+    <div class="site-shell relative z-10">
+      <div class="mb-12 text-center">
+        <span class="eyebrow mb-4 inline-block">Neler Yapıyoruz</span>
+        <h2 class="section-title">
+          <span class="text-[#FF9700]">Desteklerimiz</span>
+        </h2>
+      </div>
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {supportCategories.map((cat) => (
+            <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+              <div class="icon-chip mx-auto mb-5 h-14 w-14 rounded-2xl text-[#FF9700]">
+                <AppIcon name={cat.icon} class="h-6 w-6" />
+              </div>
+              <h3 class="mb-3 text-lg font-bold text-black">{cat.title}</h3>
+              <p class="text-sm leading-relaxed text-black/60">{cat.description}</p>
+              <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#ffbe5c] transition-all duration-500 group-hover:w-full"></div>
+            </div>
+          ))}
+        </div>
+    </div>
+  </section>
+
+  <!-- ─── DEĞERLERİMİZ ─── -->
+  <section class="section-space relative">
+    <div class="site-shell">
+      <div class="mb-12 flex flex-col items-center gap-4 text-center">
+        <span class="eyebrow">İlkelerimiz</span>
+        <h2 class="section-title">
+          <span class="text-[#FF9700]">Değerlerimiz</span>
+        </h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        {coreValues.map((val) => (
+          <div class="group relative overflow-hidden rounded-[2rem] border border-black/10 shadow-[0_20px_54px_rgba(15,15,15,0.07)]" style="min-height:32rem;">
+            <!-- bg image -->
+            <img
+              src={val.image}
+              alt={val.title}
+              class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+            <!-- gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+            <!-- content -->
+            <div class="relative z-10 flex h-full min-h-[32rem] flex-col justify-end p-7">
+              <h3 class="mb-2 text-2xl font-bold text-white">{val.title}</h3>
+              <p class="text-sm leading-relaxed text-white/80">{val.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BİZ SECTION (Full-width team photo) ─── -->
+  <section class="relative overflow-hidden" style="min-height:28rem;">
+    <img
+      src="/hakkimizda/biz-team.webp"
+      alt="itüöder ekibi"
+      class="absolute inset-0 h-full w-full object-cover"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative z-10 flex min-h-[28rem] items-center justify-center">
+      <h2 class="text-6xl font-extrabold text-white md:text-8xl" style="letter-spacing:-0.04em;">Biz</h2>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="section-space">
+    <div class="site-shell">
+      <div class="surface-card mx-auto max-w-3xl overflow-hidden p-10 text-center sm:p-14">
+        <span class="eyebrow mb-5 inline-block">Bir Parçamız Ol</span>
+        <h2 class="section-title mb-5 text-3xl sm:text-4xl">
+          Sen de itü<span class="text-[#FF9700]">öder</span> ailesine katıl
+        </h2>
+        <p class="mx-auto mb-8 max-w-lg text-sm leading-relaxed text-black/60 sm:text-base">
+          İTÜ öğrencileri olarak beraberken çok daha güçlüyüz. Üye ol, desteklere eriş ve topluluğun bir parçası ol.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="/uye-ol"
+            class="btn btn-primary rounded-full px-7 py-3 text-sm font-semibold shadow-[0_12px_30px_rgba(255,151,0,0.28)]"
+          >
+            Üye Ol
+          </a>
+          <a
+            href="/bagisci-ol"
+            class="btn rounded-full border border-black/10 bg-white px-7 py-3 text-sm font-semibold text-black shadow-none hover:border-black hover:bg-black hover:text-white"
+          >
+            Bağışçı Ol
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

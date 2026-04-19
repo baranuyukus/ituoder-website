@@ -1,0 +1,61 @@
+---
+import { impactPillars } from '../data/homepage';
+import AppIcon from './AppIcon.astro';
+---
+
+<section class="section-space-tight pt-4">
+  <div class="site-shell">
+    <div class="overflow-hidden rounded-[2.4rem] border border-[color:var(--brand-outline)] bg-[#1B1B1B] text-white shadow-[0_28px_70px_rgba(27,27,27,0.16)]">
+      <div class="relative isolate">
+        <img
+          src="/home/cta-illustration.avif"
+          alt="İTÜ öğrencilerini temsil eden dayanışma illüstrasyonu"
+          class="absolute inset-0 h-full w-full object-cover object-center opacity-62"
+        />
+        <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(27,27,27,0.94),rgba(27,27,27,0.68)_46%,rgba(0,0,0,0.84))]"></div>
+
+        <div class="relative grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.82fr)] lg:p-12 xl:p-14">
+          <div class="flex flex-col justify-between gap-10">
+            <div class="max-w-[34rem] space-y-5">
+              <span class="eyebrow border-white/10 bg-white/8 text-white/78">Dayanışmayı büyüt</span>
+              <h2 class="section-title max-w-[12ch] text-white">Küçük bir destek, büyük bir fark yaratır.</h2>
+              <p class="max-w-[30rem] text-lg leading-8 text-white/78">
+                İTÜ öğrencilerinin yanında daha görünür ve sürdürülebilir bir etki yaratmak için katkı verin.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <a href="/bagisci-ol" class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_18px_40px_rgba(255,151,0,0.26)]">
+                Bağışçı Ol
+              </a>
+              <a href="/projelerimiz" class="btn btn-lg rounded-full border-white/12 bg-white/[0.07] px-8 text-white shadow-none hover:bg-white hover:text-[#1B1B1B]">
+                Projeleri İncele
+              </a>
+            </div>
+          </div>
+
+          <div class="grid gap-4 self-end">
+            {impactPillars.map((item, index) => (
+              <div
+                class:list={[
+                  'rounded-[1.55rem] border p-5 backdrop-blur-sm',
+                  index === 0
+                    ? 'border-white/12 bg-[linear-gradient(135deg,rgba(255,151,0,0.14),rgba(255,255,255,0.08))]'
+                    : 'border-white/10 bg-white/[0.07]',
+                ]}
+              >
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">
+                    <AppIcon name={item.icon} class="h-4 w-4" strokeWidth={1.9} />
+                  </span>
+                  <h3 class="font-display text-xl font-bold text-white">{item.title}</h3>
+                </div>
+                <p class="mt-4 max-w-[32rem] text-sm leading-7 text-white/72">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

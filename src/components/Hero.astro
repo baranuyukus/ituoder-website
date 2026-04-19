@@ -1,0 +1,185 @@
+---
+import { heroHighlights, supportAreas } from '../data/homepage';
+import AppIcon from './AppIcon.astro';
+---
+
+<section class="section-space relative overflow-hidden pt-8 lg:pt-10">
+  <div class="absolute inset-0">
+    <div class="absolute -left-16 top-0 h-72 w-72 rounded-full bg-[#FF9700]/16 blur-3xl"></div>
+    <div class="absolute right-0 top-24 h-64 w-64 rounded-full bg-[#1B1B1B]/5 blur-3xl"></div>
+  </div>
+
+  <div class="site-shell relative grid gap-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-center xl:gap-14">
+    <div class="space-y-8 lg:pr-4">
+      <div class="space-y-6">
+        <span class="eyebrow">İTÜ öğrencileri için destek ağı</span>
+        <h1 class="section-title max-w-[12ch] text-[2.2rem] leading-[0.98] sm:text-[2.85rem] md:text-[3.85rem] xl:text-[4.45rem]">
+          Sana özel desteklerle
+          <span class="inline-block whitespace-nowrap">
+            itü<span class="text-primary">öder</span>’li
+          </span>
+          Ol!
+        </h1>
+        <p class="max-w-[31rem] text-lg leading-8 text-black/68 md:text-[1.22rem]">
+          İTÜ öğrencileri için dayanışma, gelişim ve destek alanlarını tek yerde buluşturuyoruz.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-3 pt-1">
+        <a href="/uye-ol" class="btn btn-primary btn-lg rounded-full px-8 shadow-[0_16px_40px_rgba(255,151,0,0.22)]">
+          Üye Ol
+        </a>
+        <a href="#hakkimizda" class="btn btn-lg rounded-full border-[color:var(--brand-outline)] bg-white px-8 text-[#1B1B1B] shadow-none hover:border-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white">
+          Bizi Tanıyın
+        </a>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        {heroHighlights.map((item, index) => (
+          <a
+            href={item.href}
+            class:list={[
+              'group flex h-full min-h-[192px] flex-col justify-between rounded-[1.55rem] border p-5 shadow-[0_14px_38px_rgba(27,27,27,0.05)] transition duration-300 hover:-translate-y-1',
+              index === 0
+                ? 'border-[#FF9700]/18 bg-[#F5F5F7] hover:border-[#FF9700]/28'
+                : 'border-[color:var(--brand-outline)] bg-white/92 hover:border-[color:var(--brand-outline-strong)]',
+            ]}
+          >
+            <div>
+              <div class="flex items-center justify-between gap-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#1B1B1B]/38">{item.label}</p>
+                <span class="icon-chip h-11 w-11 rounded-[0.95rem] text-[#FF9700]">
+                  <AppIcon name={item.icon} class="h-5 w-5" />
+                </span>
+              </div>
+              <h2 class="mt-3 font-display text-[1.36rem] font-bold leading-tight text-[#1B1B1B] transition group-hover:text-[#FF9700]">
+                {item.title}
+              </h2>
+              <p class="mt-3 max-w-[19ch] text-sm leading-7 text-[#1B1B1B]/64">{item.description}</p>
+            </div>
+
+            <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#1B1B1B]/70 transition group-hover:text-[#1B1B1B]">
+              İncele
+              <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="space-y-4 lg:pl-2">
+      <div class="surface-card overflow-hidden p-3">
+        <div class="relative min-h-[430px] overflow-hidden rounded-[1.7rem] sm:min-h-[470px]">
+          <img
+            src="/home/hero-hezarfen.webp"
+            alt="İTÜ Mustafa İnan Kütüphanesi'nin önündeki Hezarfen Heykeli"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#1B1B1B]/72 to-[#1B1B1B]/12"></div>
+          <div class="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
+            <span class="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-white/82">
+              Öğrencilerin yanında
+            </span>
+            <p class="mt-4 max-w-[16ch] font-display text-[1.9rem] font-semibold leading-[1.06] sm:text-[2.2rem]">
+              Dayanışmayı kampüsten başlayan, geleceğe uzanan bir deneyime dönüştürüyoruz.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="surface-card flex items-center justify-between gap-5 p-5 sm:p-6">
+        <div class="space-y-2">
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-black/40">Proje merkezi</p>
+          <p class="max-w-[17rem] font-display text-[1.45rem] font-semibold leading-[1.08] text-black sm:text-[1.65rem]">
+            Destek ve proje alanlarını tek ekranda keşfet.
+          </p>
+        </div>
+        <a href="/projelerimiz" class="inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-outline)] bg-[#F5F5F7] px-5 py-3 text-sm font-semibold text-[#1B1B1B] transition hover:border-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white">
+          Projeler
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hakkimizda" class="section-space pt-6">
+  <div class="site-shell space-y-10">
+    <div class="grid gap-7 xl:grid-cols-[minmax(0,1.02fr)_minmax(22rem,0.78fr)] xl:items-end">
+      <div class="space-y-6">
+        <span class="eyebrow">Destek Alanları</span>
+        <h2 class="section-title max-w-[12ch]">
+          İTÜ öğrencileri için destek ve dayanışmayı aynı çatı altında topluyoruz.
+        </h2>
+      </div>
+
+      <div class="space-y-5 xl:pb-1">
+        <p class="max-w-[32rem] text-lg leading-8 text-black/68">
+          Her proje, öğrencinin gerçek ihtiyacına temas eden belirli bir destek alanına odaklanır. Logoların altında
+          ne sunduklarını kısa ve net biçimde görebilirsin.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/hakkimizda" class="btn btn-primary rounded-full px-7 shadow-[0_12px_28px_rgba(255,151,0,0.2)]">Hakkımızda</a>
+          <a href="/projelerimiz" class="btn rounded-full border-[color:var(--brand-outline)] bg-white px-7 text-[#1B1B1B] shadow-none hover:border-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white">
+            Tüm Projeler
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        {supportAreas.map((area, index) => (
+          <a
+            href={area.href}
+            class:list={[
+              'group flex min-h-[210px] flex-col rounded-[1.35rem] border p-6 transition duration-300 hover:-translate-y-1 hover:border-[#FF9700]/24 hover:shadow-[0_18px_42px_rgba(27,27,27,0.07)]',
+              index === 0 ? 'border-[#FF9700]/18 bg-[#F5F5F7]' : 'border-[color:var(--brand-outline)] bg-white/96',
+            ]}
+          >
+            <div class="flex items-center gap-4">
+              <span class="icon-chip h-9 w-9 flex-shrink-0 rounded-[0.9rem] text-[#FF9700] shadow-none">
+                <AppIcon name={area.icon} class="h-4 w-4" />
+              </span>
+            </div>
+
+            <div class="mt-7 flex min-h-[4.2rem] items-center">
+              {area.logoSrc ? (
+                <>
+                  <img
+                    src={area.logoSrc}
+                    alt={area.logoAlt ?? area.title}
+                    class:list={[
+                      'w-auto max-w-[14rem] object-contain transition duration-300 group-hover:scale-[1.02]',
+                      area.logoClassName ?? 'h-10',
+                    ]}
+                  />
+                  <span class="sr-only">{area.title}</span>
+                </>
+              ) : (
+                <h3 class="font-display text-[1.3rem] font-bold leading-tight text-[#1B1B1B] transition group-hover:text-[#FF9700]">
+                  {area.title}
+                </h3>
+              )}
+            </div>
+
+            <p class="mt-6 max-w-[19rem] text-sm leading-7 text-[#1B1B1B]/68">
+              {area.description}
+            </p>
+
+            <span class="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[#1B1B1B] transition group-hover:text-[#FF9700]">
+              İncele
+              <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        ))}
+    </div>
+
+    <div class="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
+      <img
+        src="/gorseller/ituoder00003.webp"
+        alt="itüöder kampüs görseli"
+        class="h-[190px] w-full object-cover object-center"
+      />
+    </div>
+  </div>
+</section>

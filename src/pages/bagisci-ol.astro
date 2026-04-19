@@ -1,0 +1,653 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AppIcon from '../components/AppIcon.astro';
+---
+
+<Layout title="İTÜ ÖDER – Bağışçı Ol | Öğrencilere Destek Ver">
+
+  <!-- ─── HERO ─── -->
+  <section class="section-space relative overflow-hidden">
+    <div class="pointer-events-none absolute -top-32 left-1/2 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-[#FF9700]/10 blur-[150px]"></div>
+
+    <div class="site-shell relative z-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="eyebrow mb-6 inline-block">Destek Ver</span>
+        <h1 class="section-title mb-6">
+          Bir öğrencinin<br />hayatına <span class="text-[#FF9700]">doku.</span>
+        </h1>
+        <p class="mx-auto max-w-2xl text-base leading-relaxed text-[#1B1B1B]/70 sm:text-lg sm:leading-relaxed">
+          Öğrencilik, mücadelelerle ve hayalleri gerçekleştirme çabasıyla dolu bir yolculuk. Sizin desteğiniz, bu yolculuğu kolaylaştırabilir ve bir öğrencinin hayatını değiştirebilir. Şimdi küçük bir adımla büyük bir fark yaratın.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a href="#bireysel" class="btn btn-primary btn-lg rounded-full px-10 shadow-[0_18px_44px_rgba(255,151,0,0.3)] transition hover:shadow-[0_24px_56px_rgba(255,151,0,0.4)]">
+            Bireysel Bağış Yap
+          </a>
+          <a href="#kurumsal" class="btn btn-lg rounded-full border border-[#1B1B1B]/10 bg-white px-8 shadow-none hover:border-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white">
+            Kurumsal Bağış
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── NASIL ÇALIŞIYOR? ─── -->
+  <section class="section-space-tight relative">
+    <div class="pointer-events-none absolute -right-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[#FF9700]/6 blur-[100px]"></div>
+
+    <div class="site-shell relative z-10">
+      <div class="mb-12 text-center">
+        <span class="eyebrow mb-4 inline-block">Süreç</span>
+        <h2 class="section-title">
+          Nasıl <span class="text-[#FF9700]">çalışıyor?</span>
+        </h2>
+      </div>
+
+      <div class="mx-auto max-w-4xl">
+        <div class="grid gap-6 sm:grid-cols-2">
+          <!-- Adım 1 -->
+          <div class="surface-card group relative overflow-hidden p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+            <div class="mb-4 flex items-center gap-4">
+              <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#FF9700] text-base font-extrabold text-white shadow-[0_6px_18px_rgba(255,151,0,0.3)]">
+                1
+              </div>
+              <h3 class="text-base font-bold text-[#1B1B1B]">Destek Alanınızı Seçin</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+              Ulaşım, terapi veya kültürel etkinlikler gibi öğrencilerin ihtiyaçlarına yönelik paketlerden birini seçin ve nerede destek olmak istediğinizi belirleyin.
+            </p>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+
+          <!-- Adım 2 -->
+          <div class="surface-card group relative overflow-hidden p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+            <div class="mb-4 flex items-center gap-4">
+              <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#FF9700] text-base font-extrabold text-white shadow-[0_6px_18px_rgba(255,151,0,0.3)]">
+                2
+              </div>
+              <h3 class="text-base font-bold text-[#1B1B1B]">Bağışınızı Yapın</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+              Güvenli ödeme sistemimiz üzerinden istediğiniz tutarda bağış yapabilirsiniz. Bağışınızın nerede kullanılacağını siz belirliyorsunuz.
+            </p>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+
+          <!-- Adım 3 -->
+          <div class="surface-card group relative overflow-hidden p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+            <div class="mb-4 flex items-center gap-4">
+              <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#FF9700] text-base font-extrabold text-white shadow-[0_6px_18px_rgba(255,151,0,0.3)]">
+                3
+              </div>
+              <h3 class="text-base font-bold text-[#1B1B1B]">Bağışınız Yerine Ulaşır</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+              Bağışınız, seçtiğiniz destek alanında doğrudan ihtiyacı olan öğrencilere ulaşır ve yalnızca o alanda kullanılır.
+            </p>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+
+          <!-- Adım 4 -->
+          <div class="surface-card group relative overflow-hidden border-[#FF9700]/20 bg-[#FFF8EE] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+            <div class="mb-4 flex items-center gap-4">
+              <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#FF9700] text-base font-extrabold text-white shadow-[0_6px_18px_rgba(255,151,0,0.3)]">
+                4
+              </div>
+              <h3 class="text-base font-bold text-[#1B1B1B]">Sonucu Görün</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+              Bağışınızın nasıl ve nerede kullanıldığını size bildireceğiz. Seçtiğiniz alandaki katkınızın gerçek etkisini görmenizi istiyoruz.
+            </p>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+        </div>
+
+        <!-- İyi ki varsınız! -->
+        <div class="mt-8 rounded-[1.9rem] border border-[#1B1B1B]/10 bg-[#1B1B1B] p-8 text-center text-white">
+          <p class="text-lg font-bold text-[#FF9700]">İyi ki varsınız!</p>
+          <p class="mt-2 text-sm leading-relaxed text-white/60">
+            Yaptığınız her bağış, bir öğrencinin hayatında unutulmaz bir fark yaratıyor. Desteğiniz sayesinde daha güçlü ve umut dolu bir gelecek inşa ediyoruz. İyilikleriniz için sonsuz teşekkürler!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DESTEK PAKETLERİ ─── -->
+  <section class="section-space relative">
+    <div class="pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full bg-[#FF9700]/8 blur-[100px]"></div>
+
+    <div class="site-shell relative z-10">
+      <div class="mb-12 text-center">
+        <span class="eyebrow mb-4 inline-block">Destek Alanları</span>
+        <h2 class="section-title">
+          Bağışın nereye <span class="text-[#FF9700]">gidiyor?</span>
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-[#1B1B1B]/60">
+          Bağışınız yalnızca seçtiğiniz alanda kullanılır. Nerede fark yaratmak istediğinizi siz belirleyin.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Psikolojik Destek -->
+        <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+          <img src="/kimlikler/psikolojikdestek.png" alt="Psikolojik Destek" class="mx-auto mb-5 h-20 w-auto object-contain" />
+          <h3 class="mb-2 text-base font-bold text-[#1B1B1B]">Psikolojik Destek</h3>
+          <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+            Sınav kaygısından burnout'a kadar onlarca öğrenciye ücretsiz psikolojik danışmanlık hizmeti sunulmaktadır.
+          </p>
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+        </div>
+
+        <!-- Hukuki Destek -->
+        <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+          <img src="/kimlikler/hukukidestek.png" alt="Hukuki Destek" class="mx-auto mb-5 h-20 w-auto object-contain" />
+          <h3 class="mb-2 text-base font-bold text-[#1B1B1B]">Hukuki Dayanışma</h3>
+          <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+            Öğrenci hakları, kira sözleşmesi, iş anlaşmazlıkları gibi meselelerde ücretsiz hukuki yönlendirme desteği.
+          </p>
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+        </div>
+
+        <!-- Ulaşım Desteği -->
+        <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+          <img src="/kimlikler/ulasımdestegi.png" alt="Ulaşım Desteği" class="mx-auto mb-5 h-20 w-auto object-contain" />
+          <h3 class="mb-2 text-base font-bold text-[#1B1B1B]">Ulaşım Desteği</h3>
+          <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+            Maddi güçlük yaşayan öğrencilere staj, etkinlik ve kampüs ulaşımında somut destek sağlanıyor.
+          </p>
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+        </div>
+
+        <!-- Kariyer Gelişim -->
+        <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+          <img src="/kimlikler/kariyergelisimdestegi.png" alt="Kariyer Gelişim Desteği" class="mx-auto mb-5 h-20 w-auto object-contain" />
+          <h3 class="mb-2 text-base font-bold text-[#1B1B1B]">Kariyer Gelişim</h3>
+          <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+            CV danışmanlığı, mentorluk ve sektör profesyonelleriyle bağlantı kurmayı sağlayan kariyer etkinlikleri.
+          </p>
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+        </div>
+
+        <!-- Fayda Havuzu -->
+        <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+          <img src="/kimlikler/faydahavuzu.png" alt="Fayda Havuzu" class="mx-auto mb-5 h-20 w-auto object-contain" />
+          <h3 class="mb-2 text-base font-bold text-[#1B1B1B]">Fayda Havuzu</h3>
+          <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+            Anlaşmalı restoran, kafe ve işletmelerde öğrencilere özel indirimler. Üyelik ücretini ilk indirimde çıkar.
+          </p>
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+        </div>
+
+        <!-- Kültür Desteği -->
+        <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+          <img src="/kimlikler/kulturdestegi.png" alt="Kültür Desteği" class="mx-auto mb-5 h-20 w-auto object-contain" />
+          <h3 class="mb-2 text-base font-bold text-[#1B1B1B]">Kültür Desteği</h3>
+          <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+            Kültürel etkinlikler, tiyatro, sergi ve sosyal aktivitelere erişimde öğrencilere yönelik destek.
+          </p>
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BİREYSEL BAĞIŞ ─── -->
+  <section id="bireysel" class="section-space relative">
+    <div class="pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full bg-[#FF9700]/8 blur-[100px]"></div>
+
+    <div class="site-shell relative z-10">
+      <div class="mb-12 text-center">
+        <span class="eyebrow mb-4 inline-block">Bireysel</span>
+        <h2 class="section-title">
+          Bireysel <span class="text-[#FF9700]">bağış yap</span>
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-[#1B1B1B]/60">
+          İster mezun, ister öğrenci, ister itüöder'i desteklemek isteyen biri ol; tek seferlik veya düzenli bağışınla fark yarat.
+        </p>
+      </div>
+
+      <div class="mx-auto max-w-2xl">
+        <!-- Bağış kartı -->
+        <div class="relative overflow-hidden rounded-[2.4rem] border border-[#1B1B1B]/10 bg-[#1B1B1B] text-white shadow-[0_28px_70px_rgba(27,27,27,0.14)]">
+          <div class="absolute -right-16 top-0 h-48 w-48 rounded-full bg-[#FF9700]/30 blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-white/10 blur-3xl"></div>
+
+          <div class="relative p-8 sm:p-12">
+            <div class="grid gap-8 sm:grid-cols-2">
+              <!-- Sol: Miktar seçimi -->
+              <div>
+                <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-white/50">Bağış Miktarı Seç</p>
+                <div class="grid grid-cols-2 gap-3" id="amount-buttons">
+                  <button id="btn-50" onclick="selectAmount(50, this)" class="amount-btn rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-bold text-white transition hover:border-[#FF9700] hover:bg-[#FF9700]/20">
+                    50 ₺
+                  </button>
+                  <button id="btn-100" onclick="selectAmount(100, this)" class="amount-btn rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-bold text-white transition hover:border-[#FF9700] hover:bg-[#FF9700]/20">
+                    100 ₺
+                  </button>
+                  <button id="btn-250" onclick="selectAmount(250, this)" class="amount-btn rounded-2xl border border-[#FF9700] bg-[#FF9700]/20 px-4 py-3 text-sm font-bold text-[#FF9700] transition hover:border-[#FF9700] hover:bg-[#FF9700]/20">
+                    250 ₺
+                  </button>
+                  <button id="btn-500" onclick="selectAmount(500, this)" class="amount-btn rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-bold text-white transition hover:border-[#FF9700] hover:bg-[#FF9700]/20">
+                    500 ₺
+                  </button>
+                  <button id="btn-1000" onclick="selectAmount(1000, this)" class="amount-btn col-span-2 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-bold text-white transition hover:border-[#FF9700] hover:bg-[#FF9700]/20">
+                    1.000 ₺
+                  </button>
+                </div>
+                <div class="mt-3">
+                  <label for="custom-amount" class="mb-1.5 block text-xs text-white/40">Farklı bir miktar gir</label>
+                  <input
+                    id="custom-amount"
+                    type="number"
+                    min="1"
+                    placeholder="Miktar (₺)"
+                    class="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder-white/30 outline-none focus:border-[#FF9700] focus:ring-0"
+                    oninput="clearSelection()"
+                  />
+                </div>
+              </div>
+
+              <!-- Sağ: Tip seçimi + CTA -->
+              <div class="flex flex-col">
+                <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-white/50">Bağış Tipi</p>
+                <div class="flex flex-col gap-3">
+                  <label class="flex cursor-pointer items-center gap-3 rounded-2xl border border-white/20 bg-white/10 p-4 transition has-[:checked]:border-[#FF9700] has-[:checked]:bg-[#FF9700]/20">
+                    <input type="radio" name="bagis-tipi" value="tek" checked class="accent-[#FF9700]" />
+                    <div>
+                      <p class="text-sm font-semibold text-white">Tek Seferlik</p>
+                      <p class="text-xs text-white/50">Bir kez bağış yaparsınız</p>
+                    </div>
+                  </label>
+                  <label class="flex cursor-pointer items-center gap-3 rounded-2xl border border-white/20 bg-white/10 p-4 transition has-[:checked]:border-[#FF9700] has-[:checked]:bg-[#FF9700]/20">
+                    <input type="radio" name="bagis-tipi" value="duzenli" class="accent-[#FF9700]" />
+                    <div>
+                      <p class="text-sm font-semibold text-white">Düzenli Bağış</p>
+                      <p class="text-xs text-white/50">Her ay otomatik bağış</p>
+                    </div>
+                  </label>
+                </div>
+                <div class="my-5 h-px w-full bg-white/10"></div>
+                <ul class="space-y-2 text-sm text-white/60">
+                  <li class="flex items-start gap-2"><AppIcon name="success" class="mt-0.5 h-4 w-4 flex-shrink-0 text-[#FF9700]" /> Resmi dernek makbuzu</li>
+                  <li class="flex items-start gap-2"><AppIcon name="success" class="mt-0.5 h-4 w-4 flex-shrink-0 text-[#FF9700]" /> Şeffaf harcama raporu</li>
+                  <li class="flex items-start gap-2"><AppIcon name="success" class="mt-0.5 h-4 w-4 flex-shrink-0 text-[#FF9700]" /> İstediğin zaman iptal</li>
+                </ul>
+                <a
+                  href="https://www.ituogrenci.org.tr/bagisci-ol"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary btn-lg mt-6 w-full rounded-full px-8 shadow-[0_18px_44px_rgba(255,151,0,0.35)] transition hover:shadow-[0_24px_56px_rgba(255,151,0,0.45)]"
+                >
+                  Bağış Kanalı'na Git →
+                </a>
+                <p class="mt-3 text-center text-xs text-white/40">Fonzip güvencesiyle · SSL korumalı</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alternatif yöntemler -->
+        <div class="mt-6 rounded-[1.5rem] border border-[#1B1B1B]/10 bg-[#F5F5F7] p-6">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-[#1B1B1B]/40">Diğer Bağış Yöntemleri</p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-[#1B1B1B]/10 bg-white p-4">
+              <p class="mb-1 text-sm font-bold text-[#1B1B1B]">Banka Havalesi</p>
+              <p class="text-xs text-[#1B1B1B]/60">IBAN bilgisi için bizimle iletişime geç:</p>
+              <a href="mailto:dernek@ituogrenci.org.tr" class="mt-1 block text-xs font-semibold text-[#FF9700]">dernek@ituogrenci.org.tr</a>
+            </div>
+            <div class="rounded-2xl border border-[#1B1B1B]/10 bg-white p-4">
+              <p class="mb-1 text-sm font-bold text-[#1B1B1B]">Nakit / Etkinlik</p>
+              <p class="text-xs text-[#1B1B1B]/60">Kampüs etkinliklerimizde yüz yüze de bağış yapabilirsiniz.</p>
+              <a href="/iletisim" class="mt-1 block text-xs font-semibold text-[#FF9700]">İletişim sayfasına git →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DESTEKÇİ OLMAK NE DEMEK? ─── -->
+  <section class="section-space-tight relative">
+    <div class="pointer-events-none absolute -right-20 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-[#FF9700]/6 blur-[120px]"></div>
+
+    <div class="site-shell relative z-10">
+      <div class="mb-12 text-center">
+        <span class="eyebrow mb-4 inline-block">Destekçi Ol</span>
+        <h2 class="section-title">
+          Destekçi olmak <span class="text-[#FF9700]">ne demek?</span>
+        </h2>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <!-- Sürdürülebilir -->
+        <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+          <div class="mb-5 flex justify-center">
+            <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#FFF7EB]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FF9700]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="mb-2 text-base font-bold text-[#1B1B1B]">Sürdürülebilir Destek Sağlarsınız</h3>
+          <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+            Tek seferlik yardımlardan farklı olarak düzenli bağışlarla öğrencilerin ihtiyaçlarını sürdürülebilir bir şekilde karşılıyorsunuz.
+          </p>
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+        </div>
+
+        <!-- Endişeleri Ortadan Kaldır -->
+        <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+          <div class="mb-5 flex justify-center">
+            <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#FFF7EB]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FF9700]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="mb-2 text-base font-bold text-[#1B1B1B]">Endişeleri Ortadan Kaldırırsınız</h3>
+          <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+            Öğrenciler bir sonraki ay ihtiyaçlarının karşılanacağından emin olur, endişeden uzak bir şekilde eğitimlerine odaklanabilir.
+          </p>
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+        </div>
+
+        <!-- Kalıcı Fark -->
+        <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+          <div class="mb-5 flex justify-center">
+            <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#FFF7EB]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FF9700]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="mb-2 text-base font-bold text-[#1B1B1B]">Kalıcı Bir Fark Yaratırsınız</h3>
+          <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+            Sürekli destekle daha fazla öğrenciye ulaşır ve onların eğitim yolculuklarına eşlik edersiniz.
+          </p>
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+        </div>
+
+        <!-- Geleceği Şekillendir -->
+        <div class="surface-card group relative overflow-hidden p-7 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+          <div class="mb-5 flex justify-center">
+            <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#FFF7EB]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FF9700]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="mb-2 text-base font-bold text-[#1B1B1B]">Geleceği Şekillendirirsiniz</h3>
+          <p class="text-sm leading-relaxed text-[#1B1B1B]/60">
+            Düzenli katkılarınız yalnızca bireysel değil toplumsal bir değişim yaratır. Geleceğin mimarlarının yetişmesinde payınız olur.
+          </p>
+          <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── KURUMSAL BAĞIŞ ─── -->
+  <section id="kurumsal" class="section-space-tight relative">
+    <div class="pointer-events-none absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-[#FF9700]/6 blur-[120px]"></div>
+
+    <div class="site-shell relative z-10">
+      <div class="mb-12 text-center">
+        <span class="eyebrow mb-4 inline-block">Kurumsal</span>
+        <h2 class="section-title">
+          Kurumsal <span class="text-[#FF9700]">bağış & iş birliği</span>
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[#1B1B1B]/60">
+          Şirketinizin sosyal sorumluluk hedefleriyle itüöder'in öğrenci odaklı misyonunu buluşturun. Kurumsal sponsorluk, burs katkısı veya program ortaklığı ile İTÜ öğrencileri için kalıcı bir iz bırakın.
+        </p>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-2">
+        <!-- Sol: Avantajlar -->
+        <div class="flex flex-col gap-5">
+          <div class="surface-card group relative overflow-hidden p-7 transition duration-300 hover:-translate-y-1">
+            <div class="mb-3 flex items-start gap-4">
+              <div class="icon-chip h-12 w-12 flex-shrink-0 rounded-2xl bg-[#FFF7EB] text-[#FF9700]">
+                <AppIcon name="building" class="h-5 w-5" />
+              </div>
+              <div>
+                <h3 class="mb-1 font-bold text-[#1B1B1B]">Marka Görünürlüğü</h3>
+                <p class="text-sm leading-relaxed text-[#1B1B1B]/60">Etkinliklerde, web sitesinde ve dijital iletişimde kurumunuzu öne çıkarıyoruz. İTÜ öğrencileri ve mezunlarına doğrudan ulaşın.</p>
+              </div>
+            </div>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+
+          <div class="surface-card group relative overflow-hidden p-7 transition duration-300 hover:-translate-y-1">
+            <div class="mb-3 flex items-start gap-4">
+              <div class="icon-chip h-12 w-12 flex-shrink-0 rounded-2xl bg-[#FFF7EB] text-[#FF9700]">
+                <AppIcon name="student" class="h-5 w-5" />
+              </div>
+              <div>
+                <h3 class="mb-1 font-bold text-[#1B1B1B]">Burs Sponsorluğu</h3>
+                <p class="text-sm leading-relaxed text-[#1B1B1B]/60">Belirlediğiniz kriterlere göre seçilen öğrencilere burs verin. Programa katkınız raporlanır ve kamuoyuyla paylaşılır.</p>
+              </div>
+            </div>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+
+          <div class="surface-card group relative overflow-hidden p-7 transition duration-300 hover:-translate-y-1">
+            <div class="mb-3 flex items-start gap-4">
+              <div class="icon-chip h-12 w-12 flex-shrink-0 rounded-2xl bg-[#FFF7EB] text-[#FF9700]">
+                <AppIcon name="partnership" class="h-5 w-5" />
+              </div>
+              <div>
+                <h3 class="mb-1 font-bold text-[#1B1B1B]">Program Ortaklığı</h3>
+                <p class="text-sm leading-relaxed text-[#1B1B1B]/60">Kariyer, mentorluk veya teknik eğitim programlarını birlikte tasarlayalım. İTÜ öğrencileriyle doğrudan bağ kurma fırsatı.</p>
+              </div>
+            </div>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+
+          <div class="surface-card group relative overflow-hidden p-7 transition duration-300 hover:-translate-y-1">
+            <div class="mb-3 flex items-start gap-4">
+              <div class="icon-chip h-12 w-12 flex-shrink-0 rounded-2xl bg-[#FFF7EB] text-[#FF9700]">
+                <AppIcon name="chart" class="h-5 w-5" />
+              </div>
+              <div>
+                <h3 class="mb-1 font-bold text-[#1B1B1B]">Şeffaf Raporlama</h3>
+                <p class="text-sm leading-relaxed text-[#1B1B1B]/60">Bağışınızın nereye gittiğini detaylı raporlarla takip edin. Tüm harcamalar kurum içinde denetlenir.</p>
+              </div>
+            </div>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#FF9700] to-[#FFB84D] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+        </div>
+
+        <!-- Sağ: İletişim -->
+        <div class="surface-card p-8 sm:p-10">
+          <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-[#1B1B1B]/40">Kurumsal İletişim</p>
+          <h3 class="mb-2 text-2xl font-bold text-[#1B1B1B]">Birlikte konuşalım</h3>
+          <p class="mb-7 text-sm leading-relaxed text-[#1B1B1B]/60">
+            Kurumsal bağış veya iş birliği talepleriniz için bize ulaşın. En kısa sürede geri dönüş sağlarız.
+          </p>
+
+          <div class="flex flex-col gap-4">
+            <div>
+              <label for="kurum-adi" class="mb-1.5 block text-xs font-semibold text-[#1B1B1B]/60">Kurum / Şirket Adı</label>
+              <input id="kurum-adi" type="text" placeholder="Örn: ABC Teknoloji A.Ş." class="w-full rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] px-4 py-3 text-sm text-[#1B1B1B] placeholder-[#1B1B1B]/30 outline-none transition focus:border-[#FF9700] focus:bg-white" />
+            </div>
+            <div>
+              <label for="yetkili" class="mb-1.5 block text-xs font-semibold text-[#1B1B1B]/60">Yetkili Adı Soyadı</label>
+              <input id="yetkili" type="text" placeholder="Adınız Soyadınız" class="w-full rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] px-4 py-3 text-sm text-[#1B1B1B] placeholder-[#1B1B1B]/30 outline-none transition focus:border-[#FF9700] focus:bg-white" />
+            </div>
+            <div>
+              <label for="email" class="mb-1.5 block text-xs font-semibold text-[#1B1B1B]/60">E-posta</label>
+              <input id="email" type="email" placeholder="ornek@sirket.com" class="w-full rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] px-4 py-3 text-sm text-[#1B1B1B] placeholder-[#1B1B1B]/30 outline-none transition focus:border-[#FF9700] focus:bg-white" />
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-semibold text-[#1B1B1B]/60">İş Birliği Türü</label>
+              <div class="grid grid-cols-2 gap-2">
+                <label class="flex cursor-pointer items-center gap-2 rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] p-3 text-xs transition has-[:checked]:border-[#FF9700] has-[:checked]:bg-[#FFF7EB]">
+                  <input type="radio" name="isbirligi" value="nakit-bagis" checked class="accent-[#FF9700]" />
+                  <span class="font-semibold text-[#1B1B1B]">Nakit Bağış</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-2 rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] p-3 text-xs transition has-[:checked]:border-[#FF9700] has-[:checked]:bg-[#FFF7EB]">
+                  <input type="radio" name="isbirligi" value="burs" class="accent-[#FF9700]" />
+                  <span class="font-semibold text-[#1B1B1B]">Burs Desteği</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-2 rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] p-3 text-xs transition has-[:checked]:border-[#FF9700] has-[:checked]:bg-[#FFF7EB]">
+                  <input type="radio" name="isbirligi" value="sponsorluk" class="accent-[#FF9700]" />
+                  <span class="font-semibold text-[#1B1B1B]">Sponsorluk</span>
+                </label>
+                <label class="flex cursor-pointer items-center gap-2 rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] p-3 text-xs transition has-[:checked]:border-[#FF9700] has-[:checked]:bg-[#FFF7EB]">
+                  <input type="radio" name="isbirligi" value="program" class="accent-[#FF9700]" />
+                  <span class="font-semibold text-[#1B1B1B]">Program Ortaklığı</span>
+                </label>
+              </div>
+            </div>
+            <div>
+              <label for="mesaj" class="mb-1.5 block text-xs font-semibold text-[#1B1B1B]/60">Mesajınız (isteğe bağlı)</label>
+              <textarea id="mesaj" rows="3" placeholder="Kısa bir açıklama ekleyebilirsiniz..." class="w-full resize-none rounded-2xl border border-[#1B1B1B]/10 bg-[#F5F5F7] px-4 py-3 text-sm text-[#1B1B1B] placeholder-[#1B1B1B]/30 outline-none transition focus:border-[#FF9700] focus:bg-white"></textarea>
+            </div>
+            <a href="mailto:dernek@ituogrenci.org.tr?subject=Kurumsal Bağış Talebi" class="btn btn-primary btn-lg w-full rounded-full px-8 shadow-[0_18px_44px_rgba(255,151,0,0.3)] text-center transition hover:shadow-[0_24px_56px_rgba(255,151,0,0.4)]">
+              Talep Gönder
+            </a>
+            <p class="text-center text-xs text-[#1B1B1B]/40">
+              Doğrudan mail: <a href="mailto:dernek@ituogrenci.org.tr" class="font-semibold text-[#FF9700]">dernek@ituogrenci.org.tr</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ETKİ METRİKLERİ ─── -->
+  <section class="section-space-tight">
+    <div class="site-shell">
+      <div class="overflow-hidden rounded-[2.4rem] bg-[#1B1B1B] text-white">
+        <div class="grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="bg-[#1B1B1B] p-8 text-center">
+            <p class="text-4xl font-extrabold tracking-tight text-[#FF9700]">500+</p>
+            <p class="mt-2 text-sm text-white/50">Desteklenen öğrenci</p>
+          </div>
+          <div class="bg-[#1B1B1B] p-8 text-center">
+            <p class="text-4xl font-extrabold tracking-tight text-[#FF9700]">12+</p>
+            <p class="mt-2 text-sm text-white/50">Aktif program</p>
+          </div>
+          <div class="bg-[#1B1B1B] p-8 text-center">
+            <p class="text-4xl font-extrabold tracking-tight text-[#FF9700]">%100</p>
+            <p class="mt-2 text-sm text-white/50">Şeffaf raporlama</p>
+          </div>
+          <div class="bg-[#1B1B1B] p-8 text-center">
+            <p class="text-4xl font-extrabold tracking-tight text-[#FF9700]">3 yıl</p>
+            <p class="mt-2 text-sm text-white/50">Sahada deneyim</p>
+          </div>
+        </div>
+        <div class="px-8 py-6 text-center sm:px-12">
+          <p class="text-sm text-white/50">Bağışlarla hayata geçen her proje, doğrudan öğrenci refahına katkı sağlıyor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SSS ─── -->
+  <section class="section-space-tight">
+    <div class="site-shell">
+      <div class="mx-auto max-w-3xl">
+        <div class="mb-10 text-center">
+          <span class="eyebrow mb-4 inline-block">Sıkça Sorulanlar</span>
+          <h2 class="section-title">Aklındaki <span class="text-[#FF9700]">sorular</span></h2>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <details class="surface-card group overflow-hidden p-0">
+            <summary class="flex cursor-pointer items-center justify-between p-6 font-semibold text-[#1B1B1B] marker:content-none">
+              <span>Bağışım nereye gitmektedir?</span>
+              <span class="ml-4 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#FF9700]/10 text-[#FF9700] transition group-open:rotate-45">+</span>
+            </summary>
+            <div class="border-t border-[#1B1B1B]/8 px-6 pb-6 pt-4 text-sm leading-relaxed text-[#1B1B1B]/60">
+              Bağışınız seçtiğiniz destek alanında (psikolojik destek, hukuki danışmanlık, ulaşım, kariyer vb.) doğrudan ihtiyacı olan öğrencilere ulaşır ve yalnızca o alanda kullanılır. Yıllık harcama raporu kamuoyuyla paylaşılır.
+            </div>
+          </details>
+
+          <details class="surface-card group overflow-hidden p-0">
+            <summary class="flex cursor-pointer items-center justify-between p-6 font-semibold text-[#1B1B1B] marker:content-none">
+              <span>Makbuz / vergi indirimi alabilir miyim?</span>
+              <span class="ml-4 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#FF9700]/10 text-[#FF9700] transition group-open:rotate-45">+</span>
+            </summary>
+            <div class="border-t border-[#1B1B1B]/8 px-6 pb-6 pt-4 text-sm leading-relaxed text-[#1B1B1B]/60">
+              itüöder resmi bir öğrenci derneğidir. Bağış makbuzu talebiniz için <a href="mailto:dernek@ituogrenci.org.tr" class="font-semibold text-[#FF9700]">dernek@ituogrenci.org.tr</a> adresiyle iletişime geçebilirsiniz.
+            </div>
+          </details>
+
+          <details class="surface-card group overflow-hidden p-0">
+            <summary class="flex cursor-pointer items-center justify-between p-6 font-semibold text-[#1B1B1B] marker:content-none">
+              <span>Düzenli bağışımı iptal edebilir miyim?</span>
+              <span class="ml-4 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#FF9700]/10 text-[#FF9700] transition group-open:rotate-45">+</span>
+            </summary>
+            <div class="border-t border-[#1B1B1B]/8 px-6 pb-6 pt-4 text-sm leading-relaxed text-[#1B1B1B]/60">
+              Evet. Düzenli bağış talimatında değişiklik veya iptal için Fonzip üzerinden işlem yapabilir ya da bizimle iletişime geçebilirsiniz. Herhangi bir bağlayıcılık yoktur.
+            </div>
+          </details>
+
+          <details class="surface-card group overflow-hidden p-0">
+            <summary class="flex cursor-pointer items-center justify-between p-6 font-semibold text-[#1B1B1B] marker:content-none">
+              <span>İTÜ öğrencisi olmayan biri bağış yapabilir mi?</span>
+              <span class="ml-4 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#FF9700]/10 text-[#FF9700] transition group-open:rotate-45">+</span>
+            </summary>
+            <div class="border-t border-[#1B1B1B]/8 px-6 pb-6 pt-4 text-sm leading-relaxed text-[#1B1B1B]/60">
+              Kesinlikle. Mezunlar, destekçiler ve İTÜ öğrenci topluluğuna katkı sağlamak isteyen herkes bağış yapabilir. Yaptığınız katkı bir öğrencinin hayatını doğrudan etkiliyor.
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SON CTA ─── -->
+  <section class="section-space-tight pb-20">
+    <div class="site-shell">
+      <div class="overflow-hidden rounded-[2.4rem] border border-[#FF9700]/20 bg-[#FFF8EE] p-10 text-center sm:p-14">
+        <span class="eyebrow mb-5 inline-block">Harekete Geç</span>
+        <h2 class="section-title mb-4">
+          Bir adım at, bir öğrencinin <span class="text-[#FF9700]">hayatına doku.</span>
+        </h2>
+        <p class="mx-auto mb-8 max-w-xl text-sm leading-relaxed text-[#1B1B1B]/60">
+          Bağışın ne kadar küçük veya büyük olursa olsun, itüöder aracılığıyla İTÜ öğrencilerine gerçek bir fark yaratıyorsun.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="#bireysel" class="btn btn-primary btn-lg rounded-full px-10 shadow-[0_18px_44px_rgba(255,151,0,0.3)] transition hover:shadow-[0_24px_56px_rgba(255,151,0,0.4)]">
+            Bireysel Bağış Yap
+          </a>
+          <a href="#kurumsal" class="btn btn-lg rounded-full border border-[#1B1B1B]/15 bg-white px-8 shadow-none hover:border-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white">
+            Kurumsal İş Birliği
+          </a>
+        </div>
+        <p class="mt-6 text-xs text-[#1B1B1B]/40">
+          Herhangi bir sorunuz için: <a href="mailto:dernek@ituogrenci.org.tr" class="font-semibold text-[#FF9700]">dernek@ituogrenci.org.tr</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  function selectAmount(amount: number, btn: HTMLElement) {
+    const btns = document.querySelectorAll('.amount-btn');
+    btns.forEach(b => {
+      b.classList.remove('border-[#FF9700]', 'bg-[#FF9700]/20', 'text-[#FF9700]');
+      b.classList.add('border-white/20', 'bg-white/10', 'text-white');
+    });
+    btn.classList.remove('border-white/20', 'bg-white/10', 'text-white');
+    btn.classList.add('border-[#FF9700]', 'bg-[#FF9700]/20', 'text-[#FF9700]');
+    const customInput = document.getElementById('custom-amount') as HTMLInputElement;
+    if (customInput) customInput.value = '';
+  }
+
+  function clearSelection() {
+    const btns = document.querySelectorAll('.amount-btn');
+    btns.forEach(b => {
+      b.classList.remove('border-[#FF9700]', 'bg-[#FF9700]/20', 'text-[#FF9700]');
+      b.classList.add('border-white/20', 'bg-white/10', 'text-white');
+    });
+  }
+
+  (window as any).selectAmount = selectAmount;
+  (window as any).clearSelection = clearSelection;
+</script>

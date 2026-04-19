@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AppIcon from '../components/AppIcon.astro';
+import { projectNavItems } from '../data/projects';
+---
+
+<Layout title="İTÜ ÖDER - Projelerimiz">
+  <section class="section-space relative overflow-hidden pb-8">
+    <div class="pointer-events-none absolute -left-20 top-0 h-[28rem] w-[28rem] rounded-full bg-[#FF9700]/12 blur-[130px]"></div>
+    <div class="pointer-events-none absolute right-0 top-20 h-[24rem] w-[24rem] rounded-full bg-[#1B1B1B]/6 blur-[110px]"></div>
+
+    <div class="site-shell relative z-10 grid gap-8 xl:grid-cols-[minmax(0,0.95fr)_minmax(20rem,1.05fr)] xl:items-end">
+      <div class="space-y-6">
+        <span class="eyebrow">Projelerimiz</span>
+        <h1 class="section-title max-w-[10ch]">Öğrencinin ihtiyacına göre şekillenen proje alanları.</h1>
+        <p class="max-w-[38rem] text-lg leading-8 text-[#1B1B1B]/68">
+          itüöder projeleri, kampüste doğrudan temas eden destek alanlarını tek çatı altında toplar. Buradan her
+          programın sayfasına kısa yoldan ulaşabilirsin.
+        </p>
+      </div>
+
+      <div class="surface-card grid gap-4 p-6 sm:grid-cols-3 sm:p-7">
+        <div class="rounded-[1.4rem] border border-[color:var(--brand-outline)] bg-[#F5F5F7] p-4">
+          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[#1B1B1B]/42">Odak</p>
+          <p class="mt-3 font-display text-[1.55rem] font-bold leading-[1.04] text-[#1B1B1B]">Sahada ve doğrudan temas</p>
+        </div>
+        <div class="rounded-[1.4rem] border border-[color:var(--brand-outline)] bg-white p-4">
+          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[#1B1B1B]/42">Yapı</p>
+          <p class="mt-3 font-display text-[1.55rem] font-bold leading-[1.04] text-[#1B1B1B]">Destek, gelişim ve dayanışma</p>
+        </div>
+        <div class="rounded-[1.4rem] border border-[color:var(--brand-outline)] bg-white p-4">
+          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[#1B1B1B]/42">Akış</p>
+          <p class="mt-3 font-display text-[1.55rem] font-bold leading-[1.04] text-[#1B1B1B]">Kısa yönlendirme, net sayfa yapısı</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space-tight pt-0">
+    <div class="site-shell">
+      <div class="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
+        {projectNavItems.map((item, index) => (
+          <a
+            href={item.href}
+            class:list={[
+              'surface-card group flex h-full flex-col rounded-[1.8rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(27,27,27,0.08)]',
+              index === 0 ? 'border-[#FF9700]/18 bg-[#F5F5F7]' : '',
+            ]}
+          >
+            <div class="flex items-center justify-between gap-4">
+              <span class="icon-chip text-[#FF9700]">
+                <AppIcon name={item.icon} class="h-5 w-5" />
+              </span>
+              <span class="text-xs font-semibold uppercase tracking-[0.22em] text-[#1B1B1B]/36">{item.label}</span>
+            </div>
+
+            <h2 class="mt-6 max-w-[14ch] font-display text-[1.7rem] font-bold leading-[1.05] text-[#1B1B1B] transition group-hover:text-[#FF9700]">
+              {item.title}
+            </h2>
+            <p class="mt-3 max-w-[26rem] text-sm leading-7 text-[#1B1B1B]/66">{item.description}</p>
+
+            <span class="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-semibold text-[#1B1B1B]">
+              Sayfaya git
+              <span aria-hidden="true" class="transition group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space-tight">
+    <div class="site-shell">
+      <div class="surface-card grid gap-6 p-8 sm:p-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+        <div>
+          <span class="eyebrow">Sonraki adım</span>
+          <h2 class="mt-5 max-w-[14ch] font-display text-[2.1rem] font-bold leading-[1.04] text-[#1B1B1B] sm:text-[2.5rem]">
+            Proje alanlarını takip etmek istersen gelişmelere de göz at.
+          </h2>
+        </div>
+        <a
+          href="/gelismeler"
+          class="btn rounded-full border-[color:var(--brand-outline)] bg-white px-7 text-[#1B1B1B] shadow-none hover:border-[#1B1B1B] hover:bg-[#1B1B1B] hover:text-white"
+        >
+          Gelişmeler
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

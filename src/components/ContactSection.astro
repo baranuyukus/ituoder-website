@@ -1,0 +1,106 @@
+---
+import { contactPoints } from '../data/homepage';
+---
+
+<section class="section-space pt-4">
+  <div class="site-shell grid gap-6 xl:grid-cols-[0.94fr_1.06fr]">
+    <div class="surface-card relative overflow-hidden bg-[#F5F5F7] p-8 lg:p-10">
+      <div class="absolute -right-10 top-0 h-40 w-40 rounded-full bg-[#FF9700]/14 blur-3xl"></div>
+      <span class="eyebrow bg-white/80">Bir fikir, bir etki</span>
+
+      <div class="mt-6 overflow-hidden rounded-[1.5rem]">
+        <img
+          src="/gorseller/ituoder00005.webp"
+          alt="itüöder kampüs görseli"
+          class="h-56 w-full object-cover"
+        />
+      </div>
+
+      <h2 class="mt-8 max-w-[11ch] font-display text-[2.25rem] font-bold leading-[1.06] text-black md:text-[2.8rem]">
+        <span class="inline-block whitespace-nowrap">
+          itü<span class="text-primary">öder</span>
+        </span>
+        için bir fikrin mi var?
+      </h2>
+      <p class="mt-4 max-w-[32rem] text-lg leading-8 text-black/70">
+        İTÜ Öğrencileri için etki yaratacağını düşündüğün bir fikrin veya projen varsa her zaman bizimle
+        iletişime geçebilirsin.
+      </p>
+      <p class="mt-5 font-display text-xl font-semibold text-black">Sensiz bir kişi eksiğiz!</p>
+      <a href="/iletisim" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-black">
+        Bize ulaş
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="surface-card min-w-0 p-8 lg:p-10">
+      <div class="space-y-4">
+        <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div class="space-y-2">
+            <span class="eyebrow">Nasıl katkı sunarsın?</span>
+            <p class="max-w-[34rem] text-base leading-7 text-black/66">
+              Fikrini paylaş, ihtiyaçları birlikte tarif edelim ve öğrenciler için daha etkili çözümler kuralım.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-3">
+          {contactPoints.map((point, index) => (
+            <div
+              class:list={[
+                'rounded-[1.45rem] border p-5',
+                index === 1
+                  ? 'border-[#FF9700]/22 bg-white shadow-[0_12px_32px_rgba(255,151,0,0.08)]'
+                  : 'border-[color:var(--brand-outline)] bg-[#F5F5F7]',
+              ]}
+            >
+              <span
+                class:list={[
+                  'inline-flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold',
+                  index === 1 ? 'bg-[#FF9700] text-white' : 'border border-[color:var(--brand-outline)] bg-white text-[#1B1B1B]/70',
+                ]}
+              >
+                0{index + 1}
+              </span>
+              <p class="mt-4 text-sm leading-7 text-black/74">{point}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-8 grid gap-4 xl:grid-cols-[1fr_0.92fr]">
+        <a
+          href="/iletisim"
+          class="rounded-[1.55rem] border border-[color:var(--brand-outline)] bg-white p-6 transition hover:-translate-y-1 hover:border-[#FF9700]/22 hover:shadow-[0_16px_40px_rgba(255,151,0,0.1)]"
+        >
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-black/40">İletişim</p>
+          <h3 class="mt-3 font-display text-[1.9rem] font-bold leading-tight text-black">Bizimle konuş</h3>
+          <p class="mt-3 max-w-[30rem] text-sm leading-7 text-black/70">
+            Öğrenci ihtiyaçlarını, kampüs fikirlerini ve proje önerilerini bize doğrudan ilet.
+          </p>
+          <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-black">
+            İletişim sayfasına git
+            <span aria-hidden="true">→</span>
+          </span>
+        </a>
+
+        <a
+          href="mailto:dernek@ituogrenci.org.tr"
+          class="min-w-0 overflow-hidden rounded-[1.55rem] border border-[color:var(--brand-outline)] bg-[#1B1B1B] p-6 text-white transition hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(27,27,27,0.18)]"
+        >
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-white/40">E-posta</p>
+          <h3 class="mt-3 max-w-full break-all font-display text-2xl font-bold leading-tight">
+            dernek@ituogrenci.org.tr
+          </h3>
+          <p class="mt-3 text-sm leading-7 text-white/70">
+            İstersen doğrudan mail at ve gündemine aldığın konuyu birlikte netleştirelim.
+          </p>
+          <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
+            Mail gönder
+            <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

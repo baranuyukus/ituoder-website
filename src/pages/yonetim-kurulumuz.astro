@@ -1,0 +1,178 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AppIcon from '../components/AppIcon.astro';
+import { boardIntro, boardMembers, boardSections } from '../data/board';
+
+const chair = boardMembers.find((member) => member.isChair);
+const members = boardMembers.filter((member) => !member.isChair);
+---
+
+<Layout title="İTÜ ÖDER - Yönetim Kurulumuz">
+  <section class="section-space relative overflow-hidden pb-8">
+    <div class="pointer-events-none absolute -top-28 right-0 h-[28rem] w-[28rem] rounded-full bg-[#FF9700]/8 blur-[120px]"></div>
+
+    <div class="site-shell relative z-10">
+      <div class="mx-auto max-w-4xl text-center">
+        <span class="eyebrow mb-6 inline-block">{boardIntro.eyebrow}</span>
+        <h1 class="section-title mb-6">{boardIntro.title}</h1>
+        <p class="mx-auto max-w-3xl text-base leading-relaxed text-black/70 sm:text-lg sm:leading-relaxed">
+          {boardIntro.body}
+        </p>
+      </div>
+
+      <div class="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3">
+        {boardSections.map((section) => (
+          <a
+            href={`#${section.id}`}
+            class="surface-card flex items-center gap-4 p-5 transition duration-300 hover:-translate-y-1 hover:border-[#FF9700]/22 hover:shadow-[0_16px_36px_rgba(255,151,0,0.08)]"
+          >
+            <span class="icon-chip text-[#FF9700]">
+              <AppIcon name={section.icon} class="h-5 w-5" />
+            </span>
+            <span class="min-w-0">
+              <span class="block text-xs font-semibold uppercase tracking-[0.22em] text-black/38">{section.label}</span>
+              <span class="mt-1 block font-display text-[1.35rem] font-bold leading-tight text-black">{section.title}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="yonetim-kurulumuz" class="section-space-tight pt-0">
+    <div class="site-shell">
+      <div class="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div class="space-y-3">
+          <span class="eyebrow">Yönetim Kurulu</span>
+          <h2 class="section-title max-w-[11ch]">Derneğin yürütücü çekirdeği.</h2>
+        </div>
+        <p class="max-w-[32rem] text-base leading-8 text-black/66">
+          Mevcut yönetim kurulu, gönüllü emeğiyle itüöder’in kurumsal ve operasyonel akışını birlikte yürütüyor.
+        </p>
+      </div>
+
+      {chair && (
+        <div class="mb-6 grid gap-6 xl:grid-cols-[minmax(18rem,0.42fr)_minmax(0,0.58fr)] xl:items-center">
+          <article class="surface-card overflow-hidden text-center">
+            <div class="relative overflow-hidden" style="aspect-ratio:1/1;">
+              <img
+                src={chair.image}
+                alt={chair.name}
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-black">{chair.name}</h3>
+              <p class="mt-1 text-sm font-semibold text-[#FF9700]">{chair.role}</p>
+            </div>
+          </article>
+
+          <div class="surface-card p-7 sm:p-8">
+            <span class="eyebrow">Başkan</span>
+            <h3 class="mt-5 font-display text-[2.2rem] font-bold leading-[1.03] text-black sm:text-[2.7rem]">
+              Yönetim yapısını koordine eden ana rol.
+            </h3>
+            <p class="mt-4 max-w-[34rem] text-base leading-8 text-black/68">
+              Başkanlık rolü, kurul içi koordinasyonu görünür kılar; ekipler arası akışı, karar süreçlerini ve kamuya
+              dönük kurumsal çerçeveyi birlikte taşır.
+            </p>
+          </div>
+        </div>
+      )}
+
+      <div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {members.map((member) => (
+          <article class="surface-card group overflow-hidden text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(255,151,0,0.1)]">
+            <div class="relative overflow-hidden" style="aspect-ratio:1/1;">
+              <img
+                src={member.image}
+                alt={member.name}
+                class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-bold text-black">{member.name}</h3>
+              <p class="mt-1 text-xs font-medium text-black/50">{member.role}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="ekip-liderleri" class="section-space-tight">
+    <div class="site-shell">
+      <div class="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div class="space-y-3">
+          <span class="eyebrow">Ekip Liderleri</span>
+          <h2 class="section-title max-w-[10ch]">Programların koordinasyon katmanı.</h2>
+        </div>
+        <p class="max-w-[32rem] text-base leading-8 text-black/66">
+          Program bazlı liderlik yapısı burada yer alacak. Bu bölüm gerçek ekip verileriyle güncellenecek şekilde hazırlandı.
+        </p>
+      </div>
+
+      <div class="surface-card grid gap-6 p-7 sm:p-8 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-start">
+        <span class="icon-chip h-14 w-14 rounded-[1.1rem] text-[#FF9700]">
+          <AppIcon name="leadership" class="h-6 w-6" />
+        </span>
+        <div>
+          <h3 class="font-display text-[1.9rem] font-bold leading-[1.06] text-black">
+            {boardSections[1]?.emptyTitle}
+          </h3>
+          <p class="mt-3 max-w-[38rem] text-base leading-8 text-black/66">
+            {boardSections[1]?.emptyBody}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ekip" class="section-space-tight">
+    <div class="site-shell">
+      <div class="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div class="space-y-3">
+          <span class="eyebrow">Ekip</span>
+          <h2 class="section-title max-w-[9ch]">Üretim ve operasyon tarafı.</h2>
+        </div>
+        <p class="max-w-[32rem] text-base leading-8 text-black/66">
+          Tasarım, içerik, organizasyon ve saha operasyonlarında çalışan ekipler bu bölümde yayınlanacak.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3">
+        <div class="surface-card p-6">
+          <span class="icon-chip h-12 w-12 rounded-[1rem] text-[#FF9700]">
+            <AppIcon name="team" class="h-5 w-5" />
+          </span>
+          <h3 class="mt-5 font-display text-[1.45rem] font-bold leading-[1.06] text-black">Ekip listesi güncelleniyor</h3>
+          <p class="mt-3 text-sm leading-7 text-black/64">
+            Dernek içindeki ekip yapılanması bu alan için yeniden düzenleniyor.
+          </p>
+        </div>
+        <div class="surface-card p-6">
+          <span class="icon-chip h-12 w-12 rounded-[1rem] text-[#FF9700]">
+            <AppIcon name="projects" class="h-5 w-5" />
+          </span>
+          <h3 class="mt-5 font-display text-[1.45rem] font-bold leading-[1.06] text-black">Rol yapıları netleşiyor</h3>
+          <p class="mt-3 text-sm leading-7 text-black/64">
+            Program, iletişim ve saha rollerinin sayfa üzerinde görünür hale getirilmesi planlanıyor.
+          </p>
+        </div>
+        <div class="surface-card p-6">
+          <span class="icon-chip h-12 w-12 rounded-[1rem] text-[#FF9700]">
+            <AppIcon name="board" class="h-5 w-5" />
+          </span>
+          <h3 class="mt-5 font-display text-[1.45rem] font-bold leading-[1.06] text-black">Kurumsal düzen korunuyor</h3>
+          <p class="mt-3 text-sm leading-7 text-black/64">
+            Sahte kişi verisi eklenmeden, gerçek veri geldikçe ekip bölümü genişletilecek.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
